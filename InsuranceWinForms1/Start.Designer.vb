@@ -22,101 +22,151 @@ Partial Class Start
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.btnCustomers = New System.Windows.Forms.Button()
+        Me.btnVehicles = New System.Windows.Forms.Button()
+        Me.btnPolicies = New System.Windows.Forms.Button()
+        Me.btnDisputes = New System.Windows.Forms.Button()
+        Me.btnClaims = New System.Windows.Forms.Button()
+        Me.btnReports = New System.Windows.Forms.Button()
+        Me.btnResults = New System.Windows.Forms.Button()
+        Me.btnDrivers = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblTotalClaims = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnCustomers
         '
-        Me.Button1.Location = New System.Drawing.Point(82, 42)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Customers"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnCustomers.Location = New System.Drawing.Point(82, 42)
+        Me.btnCustomers.Name = "btnCustomers"
+        Me.btnCustomers.Size = New System.Drawing.Size(75, 23)
+        Me.btnCustomers.TabIndex = 0
+        Me.btnCustomers.Text = "Customers"
+        Me.btnCustomers.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnVehicles
         '
-        Me.Button2.Location = New System.Drawing.Point(82, 103)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Vehicles"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnVehicles.Location = New System.Drawing.Point(82, 90)
+        Me.btnVehicles.Name = "btnVehicles"
+        Me.btnVehicles.Size = New System.Drawing.Size(75, 23)
+        Me.btnVehicles.TabIndex = 1
+        Me.btnVehicles.Text = "Vehicles"
+        Me.btnVehicles.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnPolicies
         '
-        Me.Button3.Location = New System.Drawing.Point(82, 155)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Policies"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnPolicies.Location = New System.Drawing.Point(82, 162)
+        Me.btnPolicies.Name = "btnPolicies"
+        Me.btnPolicies.Size = New System.Drawing.Size(75, 23)
+        Me.btnPolicies.TabIndex = 2
+        Me.btnPolicies.Text = "Policies"
+        Me.btnPolicies.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnDisputes
         '
-        Me.Button4.Location = New System.Drawing.Point(82, 250)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "Disputes"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnDisputes.Location = New System.Drawing.Point(82, 272)
+        Me.btnDisputes.Name = "btnDisputes"
+        Me.btnDisputes.Size = New System.Drawing.Size(75, 23)
+        Me.btnDisputes.TabIndex = 3
+        Me.btnDisputes.Text = "Disputes"
+        Me.btnDisputes.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnClaims
         '
-        Me.Button5.Location = New System.Drawing.Point(82, 348)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 4
-        Me.Button5.Text = "Claims"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnClaims.Location = New System.Drawing.Point(82, 380)
+        Me.btnClaims.Name = "btnClaims"
+        Me.btnClaims.Size = New System.Drawing.Size(75, 23)
+        Me.btnClaims.TabIndex = 4
+        Me.btnClaims.Text = "Claims"
+        Me.btnClaims.UseVisualStyleBackColor = True
         '
-        'Button6
+        'btnReports
         '
-        Me.Button6.Location = New System.Drawing.Point(82, 203)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 5
-        Me.Button6.Text = "Reports"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnReports.Location = New System.Drawing.Point(82, 219)
+        Me.btnReports.Name = "btnReports"
+        Me.btnReports.Size = New System.Drawing.Size(75, 23)
+        Me.btnReports.TabIndex = 5
+        Me.btnReports.Text = "Reports"
+        Me.btnReports.UseVisualStyleBackColor = True
         '
-        'Button7
+        'btnResults
         '
-        Me.Button7.Location = New System.Drawing.Point(82, 302)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 23)
-        Me.Button7.TabIndex = 6
-        Me.Button7.Text = "Results"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnResults.Location = New System.Drawing.Point(82, 325)
+        Me.btnResults.Name = "btnResults"
+        Me.btnResults.Size = New System.Drawing.Size(75, 23)
+        Me.btnResults.TabIndex = 6
+        Me.btnResults.Text = "Results"
+        Me.btnResults.UseVisualStyleBackColor = True
+        '
+        'btnDrivers
+        '
+        Me.btnDrivers.Location = New System.Drawing.Point(82, 119)
+        Me.btnDrivers.Name = "btnDrivers"
+        Me.btnDrivers.Size = New System.Drawing.Size(75, 23)
+        Me.btnDrivers.TabIndex = 7
+        Me.btnDrivers.Text = "Drivers"
+        Me.btnDrivers.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(610, 47)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(84, 13)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Total Claims in $"
+        '
+        'lblTotalClaims
+        '
+        Me.lblTotalClaims.AutoSize = True
+        Me.lblTotalClaims.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalClaims.Location = New System.Drawing.Point(619, 80)
+        Me.lblTotalClaims.Name = "lblTotalClaims"
+        Me.lblTotalClaims.Size = New System.Drawing.Size(51, 31)
+        Me.lblTotalClaims.TabIndex = 9
+        Me.lblTotalClaims.Text = "0 $"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(621, 167)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(73, 13)
+        Me.Label2.TabIndex = 10
+        Me.Label2.Text = "Last Reports :"
         '
         'Start
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(797, 467)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblTotalClaims)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnDrivers)
+        Me.Controls.Add(Me.btnResults)
+        Me.Controls.Add(Me.btnReports)
+        Me.Controls.Add(Me.btnClaims)
+        Me.Controls.Add(Me.btnDisputes)
+        Me.Controls.Add(Me.btnPolicies)
+        Me.Controls.Add(Me.btnVehicles)
+        Me.Controls.Add(Me.btnCustomers)
         Me.Name = "Start"
         Me.Text = "Start"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
+    Friend WithEvents btnCustomers As Button
+    Friend WithEvents btnVehicles As Button
+    Friend WithEvents btnPolicies As Button
+    Friend WithEvents btnDisputes As Button
+    Friend WithEvents btnClaims As Button
+    Friend WithEvents btnReports As Button
+    Friend WithEvents btnResults As Button
+    Friend WithEvents btnDrivers As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents lblTotalClaims As Label
+    Friend WithEvents Label2 As Label
 End Class
