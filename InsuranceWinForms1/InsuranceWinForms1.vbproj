@@ -78,6 +78,12 @@
     <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.Charts.WinForms, Version=1.0.9.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.Charts.WinForms.1.0.9\lib\net472\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -142,6 +148,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -207,6 +214,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -232,16 +240,29 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCustomer.Designer.vb">
-      <DependentUpon>AddCustomer.vb</DependentUpon>
+    <Compile Include="EditCustomer.Designer.vb">
+      <DependentUpon>EditCustomer.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddCustomer.vb">
+    <Compile Include="EditCustomer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Claims.Designer.vb">
-      <DependentUpon>Claims.vb</DependentUpon>
+    <Compile Include="EditPolicies.Designer.vb">
+      <DependentUpon>EditPolicies.vb</DependentUpon>
     </Compile>
-    <Compile Include="Claims.vb">
+    <Compile Include="EditPolicies.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.vb">
+      <DependentUpon>Reports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Content Include="SQL\CalculateTotalPremium.sql" />
+    <Compile Include="xClaims.Designer.vb">
+      <DependentUpon>xClaims.vb</DependentUpon>
+    </Compile>
+    <Compile Include="xClaims.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Customers.Designer.vb">
@@ -259,10 +280,10 @@
     <Compile Include="Disputes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDriver.Designer.vb">
-      <DependentUpon>AddDriver.vb</DependentUpon>
+    <Compile Include="EditDriver.Designer.vb">
+      <DependentUpon>EditDriver.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddDriver.vb">
+    <Compile Include="EditDriver.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Drivers.Designer.vb">
@@ -283,16 +304,16 @@
     <Compile Include="Policies.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports.Designer.vb">
-      <DependentUpon>Reports.vb</DependentUpon>
+    <Compile Include="EditReports.Designer.vb">
+      <DependentUpon>EditReports.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reports.vb">
+    <Compile Include="EditReports.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SetResults.Designer.vb">
-      <DependentUpon>SetResults.vb</DependentUpon>
+    <Compile Include="EditResults.Designer.vb">
+      <DependentUpon>EditResults.vb</DependentUpon>
     </Compile>
-    <Compile Include="SetResults.vb">
+    <Compile Include="EditResults.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShowResults.Designer.vb">
@@ -324,6 +345,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="EditVehicles.Designer.vb">
+      <DependentUpon>EditVehicles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditVehicles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vehicles.Designer.vb">
       <DependentUpon>Vehicles.vb</DependentUpon>
     </Compile>
@@ -332,8 +359,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Claims.resx">
-      <DependentUpon>Claims.vb</DependentUpon>
+    <EmbeddedResource Include="Drivers.resx">
+      <DependentUpon>Drivers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCustomer.resx">
+      <DependentUpon>EditCustomer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPolicies.resx">
+      <DependentUpon>EditPolicies.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xClaims.resx">
+      <DependentUpon>xClaims.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.vb</DependentUpon>
@@ -341,8 +380,8 @@
     <EmbeddedResource Include="Disputes.resx">
       <DependentUpon>Disputes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddDriver.resx">
-      <DependentUpon>AddDriver.vb</DependentUpon>
+    <EmbeddedResource Include="EditDriver.resx">
+      <DependentUpon>EditDriver.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -356,17 +395,20 @@
     <EmbeddedResource Include="Policies.resx">
       <DependentUpon>Policies.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports.resx">
-      <DependentUpon>Reports.vb</DependentUpon>
+    <EmbeddedResource Include="EditReports.resx">
+      <DependentUpon>EditReports.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SetResults.resx">
-      <DependentUpon>SetResults.vb</DependentUpon>
+    <EmbeddedResource Include="EditResults.resx">
+      <DependentUpon>EditResults.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowResults.resx">
       <DependentUpon>ShowResults.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditVehicles.resx">
+      <DependentUpon>EditVehicles.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vehicles.resx">
       <DependentUpon>Vehicles.vb</DependentUpon>

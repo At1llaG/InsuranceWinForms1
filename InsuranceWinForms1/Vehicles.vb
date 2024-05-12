@@ -1,9 +1,9 @@
 ﻿Public Class Vehicles
-    Private Sub Label10_Click(sender As Object, e As EventArgs)
+    Private Sub btnAddCustomer_Click(sender As Object, e As EventArgs) Handles btnAddVehicle.Click
 
     End Sub
 
-    Private Sub Vehicles_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub btnEditCustomer_Click(sender As Object, e As EventArgs) Handles btnEditVehicle.Click
 
     End Sub
 End Class

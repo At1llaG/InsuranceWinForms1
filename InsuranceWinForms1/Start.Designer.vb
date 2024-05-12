@@ -33,11 +33,22 @@ Partial Class Start
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblTotalClaims = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnInitializeCreate = New System.Windows.Forms.Button()
+        Me.btnInitializeDrop = New System.Windows.Forms.Button()
+        Me.btnAddTestData = New System.Windows.Forms.Button()
+        Me.btnAddCustomer = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnCustomers
         '
-        Me.btnCustomers.Location = New System.Drawing.Point(82, 42)
+        Me.btnCustomers.Location = New System.Drawing.Point(94, 87)
         Me.btnCustomers.Name = "btnCustomers"
         Me.btnCustomers.Size = New System.Drawing.Size(75, 23)
         Me.btnCustomers.TabIndex = 0
@@ -46,7 +57,7 @@ Partial Class Start
         '
         'btnVehicles
         '
-        Me.btnVehicles.Location = New System.Drawing.Point(82, 90)
+        Me.btnVehicles.Location = New System.Drawing.Point(94, 135)
         Me.btnVehicles.Name = "btnVehicles"
         Me.btnVehicles.Size = New System.Drawing.Size(75, 23)
         Me.btnVehicles.TabIndex = 1
@@ -55,7 +66,7 @@ Partial Class Start
         '
         'btnPolicies
         '
-        Me.btnPolicies.Location = New System.Drawing.Point(82, 162)
+        Me.btnPolicies.Location = New System.Drawing.Point(94, 207)
         Me.btnPolicies.Name = "btnPolicies"
         Me.btnPolicies.Size = New System.Drawing.Size(75, 23)
         Me.btnPolicies.TabIndex = 2
@@ -64,7 +75,7 @@ Partial Class Start
         '
         'btnDisputes
         '
-        Me.btnDisputes.Location = New System.Drawing.Point(82, 272)
+        Me.btnDisputes.Location = New System.Drawing.Point(94, 317)
         Me.btnDisputes.Name = "btnDisputes"
         Me.btnDisputes.Size = New System.Drawing.Size(75, 23)
         Me.btnDisputes.TabIndex = 3
@@ -73,7 +84,7 @@ Partial Class Start
         '
         'btnClaims
         '
-        Me.btnClaims.Location = New System.Drawing.Point(82, 380)
+        Me.btnClaims.Location = New System.Drawing.Point(94, 425)
         Me.btnClaims.Name = "btnClaims"
         Me.btnClaims.Size = New System.Drawing.Size(75, 23)
         Me.btnClaims.TabIndex = 4
@@ -82,7 +93,7 @@ Partial Class Start
         '
         'btnReports
         '
-        Me.btnReports.Location = New System.Drawing.Point(82, 219)
+        Me.btnReports.Location = New System.Drawing.Point(94, 264)
         Me.btnReports.Name = "btnReports"
         Me.btnReports.Size = New System.Drawing.Size(75, 23)
         Me.btnReports.TabIndex = 5
@@ -91,7 +102,7 @@ Partial Class Start
         '
         'btnResults
         '
-        Me.btnResults.Location = New System.Drawing.Point(82, 325)
+        Me.btnResults.Location = New System.Drawing.Point(94, 370)
         Me.btnResults.Name = "btnResults"
         Me.btnResults.Size = New System.Drawing.Size(75, 23)
         Me.btnResults.TabIndex = 6
@@ -100,7 +111,7 @@ Partial Class Start
         '
         'btnDrivers
         '
-        Me.btnDrivers.Location = New System.Drawing.Point(82, 119)
+        Me.btnDrivers.Location = New System.Drawing.Point(94, 164)
         Me.btnDrivers.Name = "btnDrivers"
         Me.btnDrivers.Size = New System.Drawing.Size(75, 23)
         Me.btnDrivers.TabIndex = 7
@@ -110,17 +121,17 @@ Partial Class Start
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(610, 47)
+        Me.Label1.Location = New System.Drawing.Point(515, 87)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 13)
+        Me.Label1.Size = New System.Drawing.Size(99, 13)
         Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Total Claims in $"
+        Me.Label1.Text = "Total Premiums in $"
         '
         'lblTotalClaims
         '
         Me.lblTotalClaims.AutoSize = True
         Me.lblTotalClaims.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalClaims.Location = New System.Drawing.Point(619, 80)
+        Me.lblTotalClaims.Location = New System.Drawing.Point(524, 120)
         Me.lblTotalClaims.Name = "lblTotalClaims"
         Me.lblTotalClaims.Size = New System.Drawing.Size(51, 31)
         Me.lblTotalClaims.TabIndex = 9
@@ -129,17 +140,105 @@ Partial Class Start
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(621, 167)
+        Me.Label2.Location = New System.Drawing.Point(515, 186)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(73, 13)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Last Reports :"
+        '
+        'btnInitializeCreate
+        '
+        Me.btnInitializeCreate.Location = New System.Drawing.Point(532, 319)
+        Me.btnInitializeCreate.Name = "btnInitializeCreate"
+        Me.btnInitializeCreate.Size = New System.Drawing.Size(97, 23)
+        Me.btnInitializeCreate.TabIndex = 11
+        Me.btnInitializeCreate.Text = "InitializeCreate"
+        Me.btnInitializeCreate.UseVisualStyleBackColor = True
+        '
+        'btnInitializeDrop
+        '
+        Me.btnInitializeDrop.Location = New System.Drawing.Point(532, 362)
+        Me.btnInitializeDrop.Name = "btnInitializeDrop"
+        Me.btnInitializeDrop.Size = New System.Drawing.Size(97, 23)
+        Me.btnInitializeDrop.TabIndex = 12
+        Me.btnInitializeDrop.Text = "Initialize Drop"
+        Me.btnInitializeDrop.UseVisualStyleBackColor = True
+        '
+        'btnAddTestData
+        '
+        Me.btnAddTestData.Location = New System.Drawing.Point(532, 398)
+        Me.btnAddTestData.Name = "btnAddTestData"
+        Me.btnAddTestData.Size = New System.Drawing.Size(97, 23)
+        Me.btnAddTestData.TabIndex = 13
+        Me.btnAddTestData.Text = "Add Test Data"
+        Me.btnAddTestData.UseVisualStyleBackColor = True
+        '
+        'btnAddCustomer
+        '
+        Me.btnAddCustomer.Location = New System.Drawing.Point(246, 87)
+        Me.btnAddCustomer.Name = "btnAddCustomer"
+        Me.btnAddCustomer.Size = New System.Drawing.Size(108, 23)
+        Me.btnAddCustomer.TabIndex = 14
+        Me.btnAddCustomer.Text = "Add Customer"
+        Me.btnAddCustomer.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(675, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox1.TabIndex = 15
+        Me.PictureBox1.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(497, 17)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 16
+        Me.Button1.Text = "Settings"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(150, 22)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(90, 13)
+        Me.Label3.TabIndex = 17
+        Me.Label3.Text = "Marsh McLennan"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Location = New System.Drawing.Point(23, 12)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox2.TabIndex = 18
+        Me.PictureBox2.TabStop = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(578, 22)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(82, 13)
+        Me.Label4.TabIndex = 19
+        Me.Label4.Text = "Atilla Gundogan"
         '
         'Start
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(797, 467)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.btnAddCustomer)
+        Me.Controls.Add(Me.btnAddTestData)
+        Me.Controls.Add(Me.btnInitializeDrop)
+        Me.Controls.Add(Me.btnInitializeCreate)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblTotalClaims)
         Me.Controls.Add(Me.Label1)
@@ -153,6 +252,8 @@ Partial Class Start
         Me.Controls.Add(Me.btnCustomers)
         Me.Name = "Start"
         Me.Text = "Start"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -169,4 +270,13 @@ Partial Class Start
     Friend WithEvents Label1 As Label
     Friend WithEvents lblTotalClaims As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents btnInitializeCreate As Button
+    Friend WithEvents btnInitializeDrop As Button
+    Friend WithEvents btnAddTestData As Button
+    Friend WithEvents btnAddCustomer As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label4 As Label
 End Class

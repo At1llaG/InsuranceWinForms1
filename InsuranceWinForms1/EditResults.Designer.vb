@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class SetResults
+Partial Class EditResults
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class SetResults
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SetResults))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EditResults))
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -261,7 +261,7 @@ Partial Class SetResults
         Me.RichTextBox1.TabIndex = 56
         Me.RichTextBox1.Text = ""
         '
-        'SetResults
+        'EditResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -291,7 +291,7 @@ Partial Class SetResults
         Me.Controls.Add(Me.lblDelete)
         Me.Controls.Add(Me.lblUpdate)
         Me.Controls.Add(Me.lblAdd)
-        Me.Name = "SetResults"
+        Me.Name = "EditResults"
         Me.Text = "SetResults"
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
