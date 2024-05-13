@@ -68,6 +68,8 @@ Public Class DatabaseInitialize
             VehicleID2 NUMBER,
             DriverID1 NUMBER,
             DriverID2 NUMBER,
+            PolicyID1 NUMBER,
+            PolicyID2 NUMBER,
             ReportDate DATE,
             Location VARCHAR2(255),
             Description VARCHAR2(1000),
@@ -77,7 +79,9 @@ Public Class DatabaseInitialize
             FOREIGN KEY (VehicleID1) REFERENCES Vehicles(VehicleID),
             FOREIGN KEY (VehicleID2) REFERENCES Vehicles(VehicleID),
             FOREIGN KEY (DriverID1) REFERENCES Drivers(DriverID),
-            FOREIGN KEY (DriverID2) REFERENCES Drivers(DriverID)
+            FOREIGN KEY (DriverID2) REFERENCES Drivers(DriverID),
+            FOREIGN KEY (PolicyID1) REFERENCES Policies(PolicyID),
+            FOREIGN KEY (PolicyID2) REFERENCES Policies(PolicyID)
         )"
 
     Public Shared createCrashResultsTableSql As String = "
@@ -160,7 +164,8 @@ Public Class DatabaseInitialize
 
     Public Function InitializeDrop() As Boolean
         Try
-            Dim tableNames As String() = {"Customers", "Vehicles", "Policies", "Drivers", "CrashReports", "CrashResults", "Claims"}
+            Dim tableNames As String() = {"Claims", "CrashResults", "CrashReports", "Drivers", "Policies", "Vehicles", "Customers"}
+            ' {"Customers", "Vehicles", "Policies", "Drivers", "CrashReports", "CrashResults", "Claims"}
             For Each tableName In tableNames
                 If Not DropTable(tableName) Then
                     Return False

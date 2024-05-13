@@ -34,7 +34,6 @@ Partial Class EditReports
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -63,12 +62,12 @@ Partial Class EditReports
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtVehicleID1 = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.Label38 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtPolicyID1 = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
@@ -78,6 +77,10 @@ Partial Class EditReports
         Me.Label44 = New System.Windows.Forms.Label()
         Me.Label45 = New System.Windows.Forms.Label()
         Me.Label46 = New System.Windows.Forms.Label()
+        Me.txtDriverID1 = New System.Windows.Forms.TextBox()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.lblReportID = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblDelete
@@ -110,7 +113,7 @@ Partial Class EditReports
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(31, 33)
+        Me.Label1.Location = New System.Drawing.Point(56, 46)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 13)
         Me.Label1.TabIndex = 11
@@ -188,17 +191,9 @@ Partial Class EditReports
         Me.Label9.TabIndex = 19
         Me.Label9.Text = "Driver Id :"
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(92, 96)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 20
-        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(220, 96)
+        Me.Button1.Location = New System.Drawing.Point(220, 90)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 21
@@ -447,12 +442,12 @@ Partial Class EditReports
         Me.Label35.TabIndex = 48
         Me.Label35.Text = "Label35"
         '
-        'TextBox1
+        'txtVehicleID1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(99, 322)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 49
+        Me.txtVehicleID1.Location = New System.Drawing.Point(99, 322)
+        Me.txtVehicleID1.Name = "txtVehicleID1"
+        Me.txtVehicleID1.Size = New System.Drawing.Size(100, 20)
+        Me.txtVehicleID1.TabIndex = 49
         '
         'Button2
         '
@@ -490,12 +485,12 @@ Partial Class EditReports
         Me.Label38.TabIndex = 53
         Me.Label38.Text = "Label38"
         '
-        'TextBox2
+        'txtPolicyID1
         '
-        Me.TextBox2.Location = New System.Drawing.Point(98, 469)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 54
+        Me.txtPolicyID1.Location = New System.Drawing.Point(98, 469)
+        Me.txtPolicyID1.Name = "txtPolicyID1"
+        Me.txtPolicyID1.Size = New System.Drawing.Size(100, 20)
+        Me.txtPolicyID1.TabIndex = 54
         '
         'Button3
         '
@@ -578,11 +573,49 @@ Partial Class EditReports
         Me.Label46.TabIndex = 63
         Me.Label46.Text = "Label46"
         '
+        'txtDriverID1
+        '
+        Me.txtDriverID1.Location = New System.Drawing.Point(104, 93)
+        Me.txtDriverID1.Name = "txtDriverID1"
+        Me.txtDriverID1.Size = New System.Drawing.Size(100, 20)
+        Me.txtDriverID1.TabIndex = 64
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(297, 20)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(39, 13)
+        Me.Label47.TabIndex = 65
+        Me.Label47.Text = "Report"
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(297, 46)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(57, 13)
+        Me.Label48.TabIndex = 66
+        Me.Label48.Text = "Report Id :"
+        '
+        'lblReportID
+        '
+        Me.lblReportID.AutoSize = True
+        Me.lblReportID.Location = New System.Drawing.Point(360, 46)
+        Me.lblReportID.Name = "lblReportID"
+        Me.lblReportID.Size = New System.Drawing.Size(27, 13)
+        Me.lblReportID.TabIndex = 67
+        Me.lblReportID.Text = "N/A"
+        '
         'EditReports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 800)
+        Me.Controls.Add(Me.lblReportID)
+        Me.Controls.Add(Me.Label48)
+        Me.Controls.Add(Me.Label47)
+        Me.Controls.Add(Me.txtDriverID1)
         Me.Controls.Add(Me.Label46)
         Me.Controls.Add(Me.Label45)
         Me.Controls.Add(Me.Label44)
@@ -592,12 +625,12 @@ Partial Class EditReports
         Me.Controls.Add(Me.Label40)
         Me.Controls.Add(Me.Label39)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtPolicyID1)
         Me.Controls.Add(Me.Label38)
         Me.Controls.Add(Me.Label37)
         Me.Controls.Add(Me.Label36)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtVehicleID1)
         Me.Controls.Add(Me.Label35)
         Me.Controls.Add(Me.Label34)
         Me.Controls.Add(Me.Label33)
@@ -626,7 +659,6 @@ Partial Class EditReports
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -658,7 +690,6 @@ Partial Class EditReports
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
@@ -687,12 +718,12 @@ Partial Class EditReports
     Friend WithEvents Label33 As Label
     Friend WithEvents Label34 As Label
     Friend WithEvents Label35 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtVehicleID1 As TextBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Label36 As Label
     Friend WithEvents Label37 As Label
     Friend WithEvents Label38 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtPolicyID1 As TextBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Label39 As Label
     Friend WithEvents Label40 As Label
@@ -702,4 +733,8 @@ Partial Class EditReports
     Friend WithEvents Label44 As Label
     Friend WithEvents Label45 As Label
     Friend WithEvents Label46 As Label
+    Friend WithEvents txtDriverID1 As TextBox
+    Friend WithEvents Label47 As Label
+    Friend WithEvents Label48 As Label
+    Friend WithEvents lblReportID As Label
 End Class

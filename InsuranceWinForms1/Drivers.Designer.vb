@@ -22,30 +22,54 @@ Partial Class Drivers
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataGridViewDrivers = New System.Windows.Forms.DataGridView()
+        Me.btnEditDriver = New System.Windows.Forms.Button()
+        Me.btnAddDriver = New System.Windows.Forms.Button()
+        CType(Me.DataGridViewDrivers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'DataGridViewDrivers
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 12)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(566, 300)
-        Me.DataGridView1.TabIndex = 0
+        Me.DataGridViewDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewDrivers.Location = New System.Drawing.Point(12, 12)
+        Me.DataGridViewDrivers.Name = "DataGridViewDrivers"
+        Me.DataGridViewDrivers.Size = New System.Drawing.Size(566, 300)
+        Me.DataGridViewDrivers.TabIndex = 0
+        '
+        'btnEditDriver
+        '
+        Me.btnEditDriver.Location = New System.Drawing.Point(142, 400)
+        Me.btnEditDriver.Name = "btnEditDriver"
+        Me.btnEditDriver.Size = New System.Drawing.Size(75, 23)
+        Me.btnEditDriver.TabIndex = 11
+        Me.btnEditDriver.Text = "Edit"
+        Me.btnEditDriver.UseVisualStyleBackColor = True
+        '
+        'btnAddDriver
+        '
+        Me.btnAddDriver.Location = New System.Drawing.Point(35, 400)
+        Me.btnAddDriver.Name = "btnAddDriver"
+        Me.btnAddDriver.Size = New System.Drawing.Size(75, 23)
+        Me.btnAddDriver.TabIndex = 10
+        Me.btnAddDriver.Text = "Add"
+        Me.btnAddDriver.UseVisualStyleBackColor = True
         '
         'Drivers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.btnEditDriver)
+        Me.Controls.Add(Me.btnAddDriver)
+        Me.Controls.Add(Me.DataGridViewDrivers)
         Me.Name = "Drivers"
         Me.Text = "Drivers"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewDrivers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridViewDrivers As DataGridView
+    Friend WithEvents btnEditDriver As Button
+    Friend WithEvents btnAddDriver As Button
 End Class

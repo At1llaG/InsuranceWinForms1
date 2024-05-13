@@ -3,7 +3,19 @@
 
 SELECT * FROM Customers;
 
+
+SELECT * FROM Vehicles;
+
 Select * from Policies;
+
+SELECT * from Drivers;
+
+SELECT * from CrashReports;
+
+SELECT * from CRASHRESULTS;
+
+INSERT INTO CrashReports (VehicleID1, VehicleID2, DriverID1, DriverID2, PolicyID1, PolicyID2, ReportDate, Location, Description, Testimonial1, Testimonial2)
+VALUES (1, 2, 1, 2, 1, 2, TO_DATE('2024-05-01', 'YYYY-MM-DD'), 'Main St', 'Car accident on Main St', 'Driver 1 testimonial', 'Driver 2 testimonial');
 
 
 

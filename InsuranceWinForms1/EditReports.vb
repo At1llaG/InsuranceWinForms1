@@ -24,40 +24,40 @@ Public Class EditReports
     End Sub
 
     Private Sub EditCrashReports_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'If Not String.IsNullOrEmpty(reportId) Then
-        '    LoadCrashReportDetails(reportId)
-        'End If
+        If Not String.IsNullOrEmpty(reportId) Then
+            'LoadCrashReportDetails(reportId)
+        End If
     End Sub
 
-    'Private Sub btnAddCrashReport_Click(sender As Object, e As EventArgs) Handles btnAddCrashReport.Click
-    '    AddCrashReport()
-    'End Sub
+    Private Sub btnAddCrashReport_Click(sender As Object, e As EventArgs) Handles btnAddCrashReport.Click
+        AddCrashReport()
+    End Sub
 
-    'Private Sub btnUpdateCrashReport_Click(sender As Object, e As EventArgs) Handles btnUpdateCrashReport.Click
-    '    UpdateCrashReport()
-    'End Sub
+    Private Sub btnUpdateCrashReport_Click(sender As Object, e As EventArgs) Handles btnUpdateCrashReport.Click
+        UpdateCrashReport()
+    End Sub
 
-    'Private Sub btnDeleteCrashReport_Click(sender As Object, e As EventArgs) Handles btnDeleteCrashReport.Click
-    '    DeleteCrashReport()
-    'End Sub
+    Private Sub btnDeleteCrashReport_Click(sender As Object, e As EventArgs) Handles btnDeleteCrashReport.Click
+        DeleteCrashReport()
+    End Sub
 
-    'Private Sub LoadCrashReportDetails(reportId As String)
-    '    Dim reportDetailsTable As DataTable = FetchCrashReportDetails(reportId)
+    Private Sub LoadCrashReportDetails(reportId As String)
+        Dim reportDetailsTable As DataTable = FetchCrashReportDetails(reportId)
 
-    '    If reportDetailsTable.Rows.Count > 0 Then
-    '        txtVehicleID1.Text = reportDetailsTable.Rows(0)("VehicleID1").ToString()
-    '        txtVehicleID2.Text = reportDetailsTable.Rows(0)("VehicleID2").ToString()
-    '        txtDriverID1.Text = reportDetailsTable.Rows(0)("DriverID1").ToString()
-    '        txtDriverID2.Text = reportDetailsTable.Rows(0)("DriverID2").ToString()
-    '        txtReportDate.Text = reportDetailsTable.Rows(0)("ReportDate").ToString()
-    '        txtLocation.Text = reportDetailsTable.Rows(0)("Location").ToString()
-    '        txtDescription.Text = reportDetailsTable.Rows(0)("Description").ToString()
-    '        txtTestimonial1.Text = reportDetailsTable.Rows(0)("Testimonial1").ToString()
-    '        txtTestimonial2.Text = reportDetailsTable.Rows(0)("Testimonial2").ToString()
-    '    Else
-    '        MessageBox.Show("Crash report details not found.")
-    '    End If
-    'End Sub
+        If reportDetailsTable.Rows.Count > 0 Then
+            txtVehicleID1.Text = reportDetailsTable.Rows(0)("VehicleID1").ToString()
+            txtVehicleID2.Text = reportDetailsTable.Rows(0)("VehicleID2").ToString()
+            txtDriverID1.Text = reportDetailsTable.Rows(0)("DriverID1").ToString()
+            txtDriverID2.Text = reportDetailsTable.Rows(0)("DriverID2").ToString()
+            txtReportDate.Text = reportDetailsTable.Rows(0)("ReportDate").ToString()
+            txtLocation.Text = reportDetailsTable.Rows(0)("Location").ToString()
+            txtDescription.Text = reportDetailsTable.Rows(0)("Description").ToString()
+            txtTestimonial1.Text = reportDetailsTable.Rows(0)("Testimonial1").ToString()
+            txtTestimonial2.Text = reportDetailsTable.Rows(0)("Testimonial2").ToString()
+        Else
+            MessageBox.Show("Crash report details not found.")
+        End If
+    End Sub
 
     Private Function FetchCrashReportDetails(reportId As String) As DataTable
         Dim reportDetailsTable As New DataTable()
@@ -205,4 +205,7 @@ Public Class EditReports
         End If
     End Sub
 
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
 End Class

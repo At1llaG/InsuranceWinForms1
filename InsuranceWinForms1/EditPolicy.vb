@@ -143,7 +143,7 @@ Public Class EditPolicy
 
     Private Sub InsertPolicy(customerId As Integer, vehicleId As Integer, policyType As String, startDate As Date, endDate As Date, premium As Decimal)
         Dim query As String = "INSERT INTO Policies (CustomerID, VehicleID, PolicyType, StartDate, EndDate, Premium) " &
-                              "VALUES (:customerId, :vehicleId, :policyType, :startDate, :endDate, :premium)"
+                              "VALUES (:customerId, :vehicleId, :policyType, :startDate, :endDate, :premium) RETURNING PolicyID INTO :newPolicyId"
 
         Try
             Using conn As New OracleConnection(connString)
@@ -154,9 +154,24 @@ Public Class EditPolicy
                     cmd.Parameters.Add(":startDate", OracleDbType.Date).Value = startDate
                     cmd.Parameters.Add(":endDate", OracleDbType.Date).Value = endDate
                     cmd.Parameters.Add(":premium", OracleDbType.Decimal).Value = premium
+                    cmd.Parameters.Add(":newPolicyId", OracleDbType.Int32).Direction = ParameterDirection.Output
 
                     conn.Open()
                     Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+                    ' Retrieve the returned value as OracleDecimal
+                    Dim returnedValue As OracleDecimal = DirectCast(cmd.Parameters(":newPolicyId").Value, OracleDecimal)
+
+                    ' Check if the returned value is not null
+                    If Not returnedValue.IsNull Then
+                        ' Convert the OracleDecimal to integer
+                        Dim newCustomerId As Integer = returnedValue.ToInt32()
+                        lblPolicyId.Text = newCustomerId.ToString()
+                    Else
+                        lblPolicyId.Text = "N/A"
+                    End If
+
+
                     MessageBox.Show($"{rowsAffected} row(s) inserted successfully.")
                 End Using
             End Using
