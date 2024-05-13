@@ -6,7 +6,7 @@ Public Class Vehicles
 
     Private Sub Vehicles_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Define the query to select all customers
-        Dim query As String = "SELECT VehicleID, CustomerID, Make, Model, Year, Color, RegistrationNumber FROM Vehicles"
+        Dim query As String = "SELECT VehicleID, CustomerID, Plate, Make, Model, Year, Color, RegistrationNumber FROM Vehicles"
 
         ' Create a DataTable to hold the retrieved data
         Dim dataTable As New DataTable()

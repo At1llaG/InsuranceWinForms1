@@ -31,7 +31,7 @@ Partial Class Start
         Me.btnResults = New System.Windows.Forms.Button()
         Me.btnDrivers = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblTotalClaims = New System.Windows.Forms.Label()
+        Me.lblTotalPremium = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnInitializeCreate = New System.Windows.Forms.Button()
         Me.btnInitializeDrop = New System.Windows.Forms.Button()
@@ -42,6 +42,8 @@ Partial Class Start
         Me.Label3 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblTotalDamages = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -127,15 +129,15 @@ Partial Class Start
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Total Premiums in $"
         '
-        'lblTotalClaims
+        'lblTotalPremium
         '
-        Me.lblTotalClaims.AutoSize = True
-        Me.lblTotalClaims.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalClaims.Location = New System.Drawing.Point(524, 120)
-        Me.lblTotalClaims.Name = "lblTotalClaims"
-        Me.lblTotalClaims.Size = New System.Drawing.Size(51, 31)
-        Me.lblTotalClaims.TabIndex = 9
-        Me.lblTotalClaims.Text = "0 $"
+        Me.lblTotalPremium.AutoSize = True
+        Me.lblTotalPremium.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalPremium.Location = New System.Drawing.Point(524, 120)
+        Me.lblTotalPremium.Name = "lblTotalPremium"
+        Me.lblTotalPremium.Size = New System.Drawing.Size(51, 31)
+        Me.lblTotalPremium.TabIndex = 9
+        Me.lblTotalPremium.Text = "0 $"
         '
         'Label2
         '
@@ -225,11 +227,32 @@ Partial Class Start
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Atilla Gundogan"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(362, 227)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(99, 13)
+        Me.Label5.TabIndex = 20
+        Me.Label5.Text = "Total Damages in $"
+        '
+        'lblTotalDamages
+        '
+        Me.lblTotalDamages.AutoSize = True
+        Me.lblTotalDamages.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalDamages.Location = New System.Drawing.Point(382, 254)
+        Me.lblTotalDamages.Name = "lblTotalDamages"
+        Me.lblTotalDamages.Size = New System.Drawing.Size(51, 31)
+        Me.lblTotalDamages.TabIndex = 21
+        Me.lblTotalDamages.Text = "0 $"
+        '
         'Start
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(797, 467)
+        Me.Controls.Add(Me.lblTotalDamages)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label3)
@@ -240,7 +263,7 @@ Partial Class Start
         Me.Controls.Add(Me.btnInitializeDrop)
         Me.Controls.Add(Me.btnInitializeCreate)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.lblTotalClaims)
+        Me.Controls.Add(Me.lblTotalPremium)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnDrivers)
         Me.Controls.Add(Me.btnResults)
@@ -268,7 +291,7 @@ Partial Class Start
     Friend WithEvents btnResults As Button
     Friend WithEvents btnDrivers As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents lblTotalClaims As Label
+    Friend WithEvents lblTotalPremium As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents btnInitializeCreate As Button
     Friend WithEvents btnInitializeDrop As Button
@@ -279,4 +302,6 @@ Partial Class Start
     Friend WithEvents Label3 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lblTotalDamages As Label
 End Class

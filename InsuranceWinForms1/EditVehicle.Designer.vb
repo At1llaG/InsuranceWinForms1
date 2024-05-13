@@ -44,6 +44,8 @@ Partial Class EditVehicle
         Me.txtYear = New System.Windows.Forms.TextBox()
         Me.txtColor = New System.Windows.Forms.TextBox()
         Me.txtRegistrationNumber = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtPlate = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'btnDeleteVehicle
@@ -84,14 +86,14 @@ Partial Class EditVehicle
         '
         'txtModel
         '
-        Me.txtModel.Location = New System.Drawing.Point(114, 117)
+        Me.txtModel.Location = New System.Drawing.Point(87, 153)
         Me.txtModel.Name = "txtModel"
         Me.txtModel.Size = New System.Drawing.Size(100, 20)
         Me.txtModel.TabIndex = 39
         '
         'txtMake
         '
-        Me.txtMake.Location = New System.Drawing.Point(95, 91)
+        Me.txtMake.Location = New System.Drawing.Point(78, 127)
         Me.txtMake.Name = "txtMake"
         Me.txtMake.Size = New System.Drawing.Size(100, 20)
         Me.txtMake.TabIndex = 38
@@ -115,7 +117,7 @@ Partial Class EditVehicle
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(35, 120)
+        Me.Label3.Location = New System.Drawing.Point(32, 156)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(42, 13)
         Me.Label3.TabIndex = 35
@@ -124,7 +126,7 @@ Partial Class EditVehicle
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(35, 91)
+        Me.Label2.Location = New System.Drawing.Point(32, 127)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 13)
         Me.Label2.TabIndex = 34
@@ -133,7 +135,7 @@ Partial Class EditVehicle
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(35, 150)
+        Me.Label5.Location = New System.Drawing.Point(32, 186)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(35, 13)
         Me.Label5.TabIndex = 50
@@ -142,7 +144,7 @@ Partial Class EditVehicle
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(23, 212)
+        Me.Label6.Location = New System.Drawing.Point(20, 248)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(109, 13)
         Me.Label6.TabIndex = 51
@@ -205,7 +207,7 @@ Partial Class EditVehicle
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(32, 185)
+        Me.Label17.Location = New System.Drawing.Point(29, 221)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(37, 13)
         Me.Label17.TabIndex = 62
@@ -213,30 +215,48 @@ Partial Class EditVehicle
         '
         'txtYear
         '
-        Me.txtYear.Location = New System.Drawing.Point(95, 150)
+        Me.txtYear.Location = New System.Drawing.Point(78, 186)
         Me.txtYear.Name = "txtYear"
         Me.txtYear.Size = New System.Drawing.Size(100, 20)
         Me.txtYear.TabIndex = 63
         '
         'txtColor
         '
-        Me.txtColor.Location = New System.Drawing.Point(95, 178)
+        Me.txtColor.Location = New System.Drawing.Point(78, 214)
         Me.txtColor.Name = "txtColor"
         Me.txtColor.Size = New System.Drawing.Size(100, 20)
         Me.txtColor.TabIndex = 64
         '
         'txtRegistrationNumber
         '
-        Me.txtRegistrationNumber.Location = New System.Drawing.Point(148, 209)
+        Me.txtRegistrationNumber.Location = New System.Drawing.Point(141, 245)
         Me.txtRegistrationNumber.Name = "txtRegistrationNumber"
         Me.txtRegistrationNumber.Size = New System.Drawing.Size(100, 20)
         Me.txtRegistrationNumber.TabIndex = 65
         '
-        'EditVehicles
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(23, 96)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(37, 13)
+        Me.Label7.TabIndex = 66
+        Me.Label7.Text = "Plate :"
+        '
+        'txtPlate
+        '
+        Me.txtPlate.Location = New System.Drawing.Point(87, 93)
+        Me.txtPlate.Name = "txtPlate"
+        Me.txtPlate.Size = New System.Drawing.Size(100, 20)
+        Me.txtPlate.TabIndex = 67
+        '
+        'EditVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 565)
+        Me.Controls.Add(Me.txtPlate)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txtRegistrationNumber)
         Me.Controls.Add(Me.txtColor)
         Me.Controls.Add(Me.txtYear)
@@ -259,7 +279,7 @@ Partial Class EditVehicle
         Me.Controls.Add(Me.btnDeleteVehicle)
         Me.Controls.Add(Me.btnUpdateVehicle)
         Me.Controls.Add(Me.btnAddVehicle)
-        Me.Name = "EditVehicles"
+        Me.Name = "EditVehicle"
         Me.Text = "Vehicles"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -288,4 +308,6 @@ Partial Class EditVehicle
     Friend WithEvents txtYear As TextBox
     Friend WithEvents txtColor As TextBox
     Friend WithEvents txtRegistrationNumber As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtPlate As TextBox
 End Class

@@ -258,7 +258,14 @@
     <Compile Include="Reports.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Content Include="SQL\CalculateTotalDamageAmount.sql" />
     <Content Include="SQL\CalculateTotalPremium.sql" />
+    <Compile Include="Results.Designer.vb">
+      <DependentUpon>Results.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Results.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="xClaims.Designer.vb">
       <DependentUpon>xClaims.vb</DependentUpon>
     </Compile>
@@ -304,16 +311,16 @@
     <Compile Include="Policies.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditReports.Designer.vb">
-      <DependentUpon>EditReports.vb</DependentUpon>
+    <Compile Include="EditReport.Designer.vb">
+      <DependentUpon>EditReport.vb</DependentUpon>
     </Compile>
-    <Compile Include="EditReports.vb">
+    <Compile Include="EditReport.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditResults.Designer.vb">
-      <DependentUpon>EditResults.vb</DependentUpon>
+    <Compile Include="EditResult.Designer.vb">
+      <DependentUpon>EditResult.vb</DependentUpon>
     </Compile>
-    <Compile Include="EditResults.vb">
+    <Compile Include="EditResult.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShowResults.Designer.vb">
@@ -371,6 +378,9 @@
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Results.resx">
+      <DependentUpon>Results.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="xClaims.resx">
       <DependentUpon>xClaims.vb</DependentUpon>
     </EmbeddedResource>
@@ -395,11 +405,11 @@
     <EmbeddedResource Include="Policies.resx">
       <DependentUpon>Policies.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditReports.resx">
-      <DependentUpon>EditReports.vb</DependentUpon>
+    <EmbeddedResource Include="EditReport.resx">
+      <DependentUpon>EditReport.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditResults.resx">
-      <DependentUpon>EditResults.vb</DependentUpon>
+    <EmbeddedResource Include="EditResult.resx">
+      <DependentUpon>EditResult.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowResults.resx">
       <DependentUpon>ShowResults.vb</DependentUpon>

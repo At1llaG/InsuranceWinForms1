@@ -12,12 +12,49 @@ SELECT * from Drivers;
 
 SELECT * from CrashReports;
 
-SELECT * from CRASHRESULTS;
+SELECT * from CrashResults;
 
 INSERT INTO CrashReports (VehicleID1, VehicleID2, DriverID1, DriverID2, PolicyID1, PolicyID2, ReportDate, Location, Description, Testimonial1, Testimonial2)
 VALUES (1, 2, 1, 2, 1, 2, TO_DATE('2024-05-01', 'YYYY-MM-DD'), 'Main St', 'Car accident on Main St', 'Driver 1 testimonial', 'Driver 2 testimonial');
 
 
+BEGIN :result := CalculateTotalPremium(); END;
+
+SELECT CalculateTotalPremium() AS Total_Premium FROM dual;
+
+SET SERVEROUTPUT ON;
+DECLARE
+    totalPremium NUMBER;
+BEGIN
+    totalPremium := CalculateTotalPremium();
+    DBMS_OUTPUT.PUT_LINE('Total Premium: ' || totalPremium);
+END;
+
+SELECT cr.*, crp.Location, v1.Plate AS Plate1, v2.Plate AS Plate2
+FROM CrashResults cr
+INNER JOIN CrashReports crp ON cr.ReportID = crp.ReportID
+INNER JOIN Vehicles v1 ON crp.VehicleID1 = v1.VehicleID
+INNER JOIN Vehicles v2 ON crp.VehicleID2 = v2.VehicleID
+WHERE cr.ResultID = :resultId
+
+
+
+
+CREATE Or REPLACE FUNCTION CalculateTotalDamageAmount RETURN NUMBER AS
+    totalDamageAmount NUMBER := 0;
+BEGIN
+    -- Use a cursor to fetch the premiums of all policies
+    For resultRec IN (SELECT DamageAmount FROM CrashResults) LOOP
+        -- Add each premium to the total
+        totalDamageAmount := totalDamageAmount + resultRec.DamageAmount;
+    End Loop;
+
+    -- Return the total premium
+    Return totalDamageAmount;
+End;
+/
+
+SELECT CalculateTotalDamageAmount() AS Total_Damage_Amount FROM dual;
 
 
 

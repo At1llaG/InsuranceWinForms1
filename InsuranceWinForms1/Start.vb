@@ -1,8 +1,14 @@
 ﻿Imports Oracle.ManagedDataAccess.Client
+Imports Oracle.ManagedDataAccess.Types
 
 Public Class Start
-    Private Sub Start_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    Private connString As String = DatabaseSettings.connString
+
+    Private Sub Start_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lblTotalPremium.Text = CalculateTotalPremium().ToString() & "$"
+        Console.WriteLine(CalculateTotalPremium().ToString())
+        lblTotalDamages.Text = CalculateTotalDamageAmount().ToString()
     End Sub
 
     Private Sub btnCustomers_Click(sender As Object, e As EventArgs) Handles btnCustomers.Click
@@ -31,7 +37,7 @@ Public Class Start
 
     End Sub
     Private Sub btnResults_Click(sender As Object, e As EventArgs) Handles btnResults.Click
-        ShowResults.Show()
+        Results.Show()
 
     End Sub
 
@@ -88,6 +94,7 @@ Public Class Start
 
     Public Function CalculateTotalPremium() As Decimal
         Dim totalPremium As Decimal = 0
+        ' SELECT CalculateTotalPremium() AS Total_Premium FROM dual;
 
         Try
             Using conn As New OracleConnection(connString)
@@ -95,7 +102,9 @@ Public Class Start
                 Using cmd As New OracleCommand("BEGIN :result := CalculateTotalPremium(); END;", conn)
                     cmd.Parameters.Add("result", OracleDbType.Decimal).Direction = ParameterDirection.ReturnValue
                     cmd.ExecuteNonQuery()
-                    totalPremium = Convert.ToDecimal(cmd.Parameters("result").Value)
+                    Dim oracleDecimalValue As OracleDecimal = DirectCast(cmd.Parameters("result").Value, OracleDecimal)
+                    totalPremium = oracleDecimalValue.Value
+                    ' totalPremium = Convert.ToDecimal(cmd.Parameters("result").Value)
                 End Using
             End Using
         Catch ex As Exception
@@ -104,6 +113,30 @@ Public Class Start
         End Try
 
         Return totalPremium
+    End Function
+
+    Public Function CalculateTotalDamageAmount() As Decimal
+        Dim totalDamageAmount As Decimal = 0
+
+        Try
+            Using conn As New OracleConnection(connString)
+                conn.Open()
+
+                Dim query As String = "SELECT SUM(DamageAmount) FROM CrashResults"
+
+                Using cmd As New OracleCommand(query, conn)
+                    Dim result As Object = cmd.ExecuteScalar()
+
+                    If result IsNot Nothing AndAlso Not DBNull.Value.Equals(result) Then
+                        totalDamageAmount = Convert.ToDecimal(result)
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            Console.WriteLine($"Error calculating total damage amount: {ex.Message}")
+        End Try
+
+        Return totalDamageAmount
     End Function
 
 

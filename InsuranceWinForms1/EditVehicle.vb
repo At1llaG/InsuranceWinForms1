@@ -62,6 +62,7 @@ Public Class EditVehicle
     Private Sub btnAddVehicle_Click(sender As Object, e As EventArgs) Handles btnAddVehicle.Click
         Dim customerId As Integer
         If Integer.TryParse(txtCustomerID.Text, customerId) Then
+            Dim plate As String = txtPlate.Text
             Dim make As String = txtMake.Text
             Dim model As String = txtModel.Text
             Dim year As Integer
@@ -70,7 +71,7 @@ Public Class EditVehicle
                 Dim regNumber As String = txtRegistrationNumber.Text
 
                 ' Insert the vehicle into the database
-                InsertVehicle(customerId, make, model, year, color, regNumber)
+                InsertVehicle(customerId, plate, make, model, year, color, regNumber)
             Else
                 MessageBox.Show("Invalid year.")
             End If
@@ -84,6 +85,7 @@ Public Class EditVehicle
         If Integer.TryParse(lblVehicleId.Text, vehicleID) Then
             Dim customerId As Integer
             If Integer.TryParse(txtCustomerID.Text, customerId) Then
+                Dim plate As String = txtPlate.Text
                 Dim make As String = txtMake.Text
                 Dim model As String = txtModel.Text
                 Dim year As Integer
@@ -92,7 +94,7 @@ Public Class EditVehicle
                     Dim regNumber As String = txtRegistrationNumber.Text
 
                     ' Update the vehicle in the database
-                    UpdateVehicle(vehicleID, customerId, make, model, year, color, regNumber)
+                    UpdateVehicle(vehicleID, customerId, plate, make, model, year, color, regNumber)
                 Else
                     MessageBox.Show("Invalid year.")
                 End If
@@ -114,13 +116,14 @@ Public Class EditVehicle
         End If
     End Sub
 
-    Private Sub InsertVehicle(customerId As Integer, make As String, model As String, year As Integer, color As String, regNumber As String)
-        Dim query As String = "INSERT INTO Vehicles (CustomerID, Make, Model, Year, Color, RegistrationNumber) " &
-                              "VALUES (:customerId, :make, :model, :year, :color, :regNumber)"
+    Private Sub InsertVehicle(customerId As Integer, plate As String, make As String, model As String, year As Integer, color As String, regNumber As String)
+        Dim query As String = "INSERT INTO Vehicles (CustomerID, Plate, Make, Model, Year, Color, RegistrationNumber) " &
+                              "VALUES (:customerId, :plate, :make, :model, :year, :color, :regNumber)"
 
         Using conn As New OracleConnection(connString)
             Using cmd As New OracleCommand(query, conn)
                 cmd.Parameters.Add(":customerId", OracleDbType.Int32).Value = customerId
+                cmd.Parameters.Add(":plate", OracleDbType.Varchar2).Value = plate
                 cmd.Parameters.Add(":make", OracleDbType.Varchar2).Value = make
                 cmd.Parameters.Add(":model", OracleDbType.Varchar2).Value = model
                 cmd.Parameters.Add(":year", OracleDbType.Int32).Value = year
@@ -138,13 +141,14 @@ Public Class EditVehicle
         End Using
     End Sub
 
-    Private Sub UpdateVehicle(vehicleID As Integer, customerId As Integer, make As String, model As String, year As Integer, color As String, regNumber As String)
-        Dim query As String = "UPDATE Vehicles SET CustomerID = :customerId, Make = :make, Model = :model, Year = :year, Color = :color, RegistrationNumber = :regNumber " &
+    Private Sub UpdateVehicle(vehicleID As Integer, customerId As Integer, plate As String, make As String, model As String, year As Integer, color As String, regNumber As String)
+        Dim query As String = "UPDATE Vehicles SET CustomerID = :customerId, Plate = :plate, Make = :make, Model = :model, Year = :year, Color = :color, RegistrationNumber = :regNumber " &
                               "WHERE VehicleID = :vehicleID"
 
         Using conn As New OracleConnection(connString)
             Using cmd As New OracleCommand(query, conn)
                 cmd.Parameters.Add(":customerId", OracleDbType.Int32).Value = customerId
+                cmd.Parameters.Add(":plate", OracleDbType.Varchar2).Value = plate
                 cmd.Parameters.Add(":make", OracleDbType.Varchar2).Value = make
                 cmd.Parameters.Add(":model", OracleDbType.Varchar2).Value = model
                 cmd.Parameters.Add(":year", OracleDbType.Int32).Value = year

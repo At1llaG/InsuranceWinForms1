@@ -51,14 +51,14 @@ Public Class DatabaseAddTestData
 
     Private Sub PopulateVehicles(conn As OracleConnection)
         Dim insertVehiclesSql As String = "
-            INSERT INTO Vehicles (CustomerID, Make, Model, Year, Color, RegistrationNumber)
-            VALUES (1, 'Toyota', 'Camry', 2020, 'Silver', 'ABC123')"
+            INSERT INTO Vehicles (CustomerID, Plate, Make, Model, Year, Color, RegistrationNumber)
+            VALUES (1, '34TT0001','Toyota', 'Camry', 2020, 'Silver', 'ABC123')"
 
         ExecuteNonQuery(conn, insertVehiclesSql)
 
         Dim insertVehiclesSql2 As String = "
-            INSERT INTO Vehicles (CustomerID, Make, Model, Year, Color, RegistrationNumber)
-            VALUES (2, 'Opel', 'Camry', 2020, 'Silver', 'ABC123')"
+            INSERT INTO Vehicles (CustomerID, Plate, Make, Model, Year, Color, RegistrationNumber)
+            VALUES (2, '34TT0002','Opel', 'Camry', 2020, 'Silver', 'ABC123')"
 
         ExecuteNonQuery(conn, insertVehiclesSql2)
     End Sub
@@ -93,16 +93,16 @@ Public Class DatabaseAddTestData
 
     Private Sub PopulateCrashReports(conn As OracleConnection)
         Dim insertCrashReportsSql As String = "
-        INSERT INTO CrashReports (VehicleID1, VehicleID2, DriverID1, DriverID2, PolicyID1, PolicyID2, ReportDate, Location, Description, Testimonial1, Testimonial2)
-        VALUES (1, 2, 1, 2, 1, 2, TO_DATE('2024-05-01', 'YYYY-MM-DD'), 'Main St', 'Car accident on Main St', 'Driver 1 testimonial', 'Driver 2 testimonial')"
+        INSERT INTO CrashReports (VehicleID1, VehicleID2, DriverID1, DriverID2, PolicyID1, PolicyID2, ReportDate, Location, Testimonial1, Testimonial2)
+        VALUES (1, 2, 1, 2, 1, 2, TO_DATE('2024-05-01', 'YYYY-MM-DD'), 'Main St', 'Driver 1 testimonial', 'Driver 2 testimonial')"
 
         ExecuteNonQuery(conn, insertCrashReportsSql)
     End Sub
 
     Private Sub PopulateCrashResults(conn As OracleConnection)
         Dim insertCrashResultsSql As String = "
-        INSERT INTO CrashResults (ReportID, DamageAmount, ViolationCode)
-        VALUES (1, 2000, 'Violation123')"
+        INSERT INTO CrashResults (ReportID, VehicleID1, VehicleID2, FaultRateDriver1, FaultRateDriver2, DamageAmount, ViolationCode, ViolationNotification)
+        VALUES (1, 1, 2, 50, 50, 2000, 'Violation123', 'vio notification')"
 
         ExecuteNonQuery(conn, insertCrashResultsSql)
     End Sub
