@@ -28,7 +28,7 @@ Public Class EditDriver
             Dim driverTable As DataTable = FetchDriverDetails(driverId)
 
             ' Bind the DataTable to DataGridView
-            DataGridView1.DataSource = driverTable
+            ' DataGridView1.DataSource = driverTable
         End If
     End Sub
 
@@ -56,78 +56,78 @@ Public Class EditDriver
         Return driverTable
     End Function
 
-    Private Sub btnAddDriver_Click(sender As Object, e As EventArgs) Handles btnAddDriver.Click
-        Dim firstName As String = txtFirstName.Text
-        Dim lastName As String = txtLastName.Text
-        Dim identityNumber As String = txtIdentityNumber.Text
-        Dim dateOfBirth As Date
-        If Date.TryParse(txtDateOfBirth.Text, dateOfBirth) Then
-            Dim licenseIssuanceDate As Date
-            If Date.TryParse(txtLicenseIssuanceDate.Text, licenseIssuanceDate) Then
-                Dim licenseValidUntilDate As Date
-                If Date.TryParse(txtLicenseValidUntilDate.Text, licenseValidUntilDate) Then
-                    Dim licenseClass As String = txtLicenseClass.Text
-                    Dim licenseNumber As String = txtLicenseNumber.Text
-                    Dim licenseIssuedBy As String = txtLicenseIssuedBy.Text
-                    Dim address As String = txtAddress.Text
-                    Dim phoneNumber As String = txtPhoneNumber.Text
+    'Private Sub btnAddDriver_Click(sender As Object, e As EventArgs) Handles btnAddDriver.Click
+    '    Dim firstName As String = txtFirstName.Text
+    '    Dim lastName As String = txtLastName.Text
+    '    Dim identityNumber As String = txtIdentityNumber.Text
+    '    Dim dateOfBirth As Date
+    '    If Date.TryParse(txtDateOfBirth.Text, dateOfBirth) Then
+    '        Dim licenseIssuanceDate As Date
+    '        If Date.TryParse(txtLicenseIssuanceDate.Text, licenseIssuanceDate) Then
+    '            Dim licenseValidUntilDate As Date
+    '            If Date.TryParse(txtLicenseValidUntilDate.Text, licenseValidUntilDate) Then
+    '                Dim licenseClass As String = txtLicenseClass.Text
+    '                Dim licenseNumber As String = txtLicenseNumber.Text
+    '                Dim licenseIssuedBy As String = txtLicenseIssuedBy.Text
+    '                Dim address As String = txtAddress.Text
+    '                Dim phoneNumber As String = txtPhoneNumber.Text
 
-                    ' Insert the driver into the database
-                    InsertDriver(firstName, lastName, identityNumber, dateOfBirth, licenseIssuanceDate, licenseValidUntilDate, licenseClass, licenseNumber, licenseIssuedBy, address, phoneNumber)
-                Else
-                    MessageBox.Show("Invalid license valid until date.")
-                End If
-            Else
-                MessageBox.Show("Invalid license issuance date.")
-            End If
-        Else
-            MessageBox.Show("Invalid date of birth.")
-        End If
-    End Sub
+    '                ' Insert the driver into the database
+    '                InsertDriver(firstName, lastName, identityNumber, dateOfBirth, licenseIssuanceDate, licenseValidUntilDate, licenseClass, licenseNumber, licenseIssuedBy, address, phoneNumber)
+    '            Else
+    '                MessageBox.Show("Invalid license valid until date.")
+    '            End If
+    '        Else
+    '            MessageBox.Show("Invalid license issuance date.")
+    '        End If
+    '    Else
+    '        MessageBox.Show("Invalid date of birth.")
+    '    End If
+    'End Sub
 
-    Private Sub btnUpdateDriver_Click(sender As Object, e As EventArgs) Handles btnUpdateDriver.Click
-        Dim driverID As Integer
-        If Integer.TryParse(txtDriverID.Text, driverID) Then
-            Dim firstName As String = txtFirstName.Text
-            Dim lastName As String = txtLastName.Text
-            Dim identityNumber As String = txtIdentityNumber.Text
-            Dim dateOfBirth As Date
-            If Date.TryParse(txtDateOfBirth.Text, dateOfBirth) Then
-                Dim licenseIssuanceDate As Date
-                If Date.TryParse(txtLicenseIssuanceDate.Text, licenseIssuanceDate) Then
-                    Dim licenseValidUntilDate As Date
-                    If Date.TryParse(txtLicenseValidUntilDate.Text, licenseValidUntilDate) Then
-                        Dim licenseClass As String = txtLicenseClass.Text
-                        Dim licenseNumber As String = txtLicenseNumber.Text
-                        Dim licenseIssuedBy As String = txtLicenseIssuedBy.Text
-                        Dim address As String = txtAddress.Text
-                        Dim phoneNumber As String = txtPhoneNumber.Text
+    'Private Sub btnUpdateDriver_Click(sender As Object, e As EventArgs) Handles btnUpdateDriver.Click
+    '    Dim driverID As Integer
+    '    If Integer.TryParse(txtDriverID.Text, driverID) Then
+    '        Dim firstName As String = txtFirstName.Text
+    '        Dim lastName As String = txtLastName.Text
+    '        Dim identityNumber As String = txtIdentityNumber.Text
+    '        Dim dateOfBirth As Date
+    '        If Date.TryParse(txtDateOfBirth.Text, dateOfBirth) Then
+    '            Dim licenseIssuanceDate As Date
+    '            If Date.TryParse(txtLicenseIssuanceDate.Text, licenseIssuanceDate) Then
+    '                Dim licenseValidUntilDate As Date
+    '                If Date.TryParse(txtLicenseValidUntilDate.Text, licenseValidUntilDate) Then
+    '                    Dim licenseClass As String = txtLicenseClass.Text
+    '                    Dim licenseNumber As String = txtLicenseNumber.Text
+    '                    Dim licenseIssuedBy As String = txtLicenseIssuedBy.Text
+    '                    Dim address As String = txtAddress.Text
+    '                    Dim phoneNumber As String = txtPhoneNumber.Text
 
-                        ' Update the driver in the database
-                        UpdateDriver(driverID, firstName, lastName, identityNumber, dateOfBirth, licenseIssuanceDate, licenseValidUntilDate, licenseClass, licenseNumber, licenseIssuedBy, address, phoneNumber)
-                    Else
-                        MessageBox.Show("Invalid license valid until date.")
-                    End If
-                Else
-                    MessageBox.Show("Invalid license issuance date.")
-                End If
-            Else
-                MessageBox.Show("Invalid date of birth.")
-            End If
-        Else
-            MessageBox.Show("Invalid driver ID.")
-        End If
-    End Sub
+    '                    ' Update the driver in the database
+    '                    UpdateDriver(driverID, firstName, lastName, identityNumber, dateOfBirth, licenseIssuanceDate, licenseValidUntilDate, licenseClass, licenseNumber, licenseIssuedBy, address, phoneNumber)
+    '                Else
+    '                    MessageBox.Show("Invalid license valid until date.")
+    '                End If
+    '            Else
+    '                MessageBox.Show("Invalid license issuance date.")
+    '            End If
+    '        Else
+    '            MessageBox.Show("Invalid date of birth.")
+    '        End If
+    '    Else
+    '        MessageBox.Show("Invalid driver ID.")
+    '    End If
+    'End Sub
 
-    Private Sub btnDeleteDriver_Click(sender As Object, e As EventArgs) Handles btnDeleteDriver.Click
-        Dim driverID As Integer
-        If Integer.TryParse(txtDriverID.Text, driverID) Then
-            ' Delete the driver from the database
-            DeleteDriver(driverID)
-        Else
-            MessageBox.Show("Invalid driver ID.")
-        End If
-    End Sub
+    'Private Sub btnDeleteDriver_Click(sender As Object, e As EventArgs) Handles btnDeleteDriver.Click
+    '    Dim driverID As Integer
+    '    If Integer.TryParse(txtDriverID.Text, driverID) Then
+    '        ' Delete the driver from the database
+    '        DeleteDriver(driverID)
+    '    Else
+    '        MessageBox.Show("Invalid driver ID.")
+    '    End If
+    'End Sub
 
     Private Sub InsertDriver(firstName As String, lastName As String, identityNumber As String, dateOfBirth As Date, licenseIssuanceDate As Date, licenseValidUntilDate As Date, licenseClass As String, licenseNumber As String, licenseIssuedBy As String, address As String, phoneNumber As String)
         Dim query As String = "INSERT INTO Drivers (FirstName, LastName, IdentityNumber, DateOfBirth, LicenseIssuanceDate, LicenseValidUntilDate, LicenseClass, LicenseNumber, LicenseIssuedBy, Address, PhoneNumber) " &

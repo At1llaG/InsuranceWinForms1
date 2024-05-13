@@ -246,10 +246,10 @@
     <Compile Include="EditCustomer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditPolicies.Designer.vb">
-      <DependentUpon>EditPolicies.vb</DependentUpon>
+    <Compile Include="EditPolicy.Designer.vb">
+      <DependentUpon>EditPolicy.vb</DependentUpon>
     </Compile>
-    <Compile Include="EditPolicies.vb">
+    <Compile Include="EditPolicy.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports.Designer.vb">
@@ -345,10 +345,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="EditVehicles.Designer.vb">
-      <DependentUpon>EditVehicles.vb</DependentUpon>
+    <Compile Include="EditVehicle.Designer.vb">
+      <DependentUpon>EditVehicle.vb</DependentUpon>
     </Compile>
-    <Compile Include="EditVehicles.vb">
+    <Compile Include="EditVehicle.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vehicles.Designer.vb">
@@ -365,8 +365,8 @@
     <EmbeddedResource Include="EditCustomer.resx">
       <DependentUpon>EditCustomer.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditPolicies.resx">
-      <DependentUpon>EditPolicies.vb</DependentUpon>
+    <EmbeddedResource Include="EditPolicy.resx">
+      <DependentUpon>EditPolicy.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>
@@ -407,8 +407,8 @@
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditVehicles.resx">
-      <DependentUpon>EditVehicles.vb</DependentUpon>
+    <EmbeddedResource Include="EditVehicle.resx">
+      <DependentUpon>EditVehicle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vehicles.resx">
       <DependentUpon>Vehicles.vb</DependentUpon>

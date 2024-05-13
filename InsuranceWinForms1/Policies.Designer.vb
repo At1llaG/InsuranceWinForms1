@@ -22,66 +22,53 @@ Partial Class Policies
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lblDelete = New System.Windows.Forms.Button()
-        Me.lblUpdate = New System.Windows.Forms.Button()
-        Me.lblAdd = New System.Windows.Forms.Button()
-        Me.DataGridView = New System.Windows.Forms.DataGridView()
-        CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.btnEditPolicy = New System.Windows.Forms.Button()
+        Me.btnAddPolicy = New System.Windows.Forms.Button()
+        Me.DataGridViewPolicies = New System.Windows.Forms.DataGridView()
+        CType(Me.DataGridViewPolicies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'lblDelete
+        'btnEditPolicy
         '
-        Me.lblDelete.Location = New System.Drawing.Point(228, 399)
-        Me.lblDelete.Name = "lblDelete"
-        Me.lblDelete.Size = New System.Drawing.Size(75, 23)
-        Me.lblDelete.TabIndex = 10
-        Me.lblDelete.Text = "Delete"
-        Me.lblDelete.UseVisualStyleBackColor = True
+        Me.btnEditPolicy.Location = New System.Drawing.Point(119, 399)
+        Me.btnEditPolicy.Name = "btnEditPolicy"
+        Me.btnEditPolicy.Size = New System.Drawing.Size(75, 23)
+        Me.btnEditPolicy.TabIndex = 9
+        Me.btnEditPolicy.Text = "Edit"
+        Me.btnEditPolicy.UseVisualStyleBackColor = True
         '
-        'lblUpdate
+        'btnAddPolicy
         '
-        Me.lblUpdate.Location = New System.Drawing.Point(119, 399)
-        Me.lblUpdate.Name = "lblUpdate"
-        Me.lblUpdate.Size = New System.Drawing.Size(75, 23)
-        Me.lblUpdate.TabIndex = 9
-        Me.lblUpdate.Text = "Update"
-        Me.lblUpdate.UseVisualStyleBackColor = True
+        Me.btnAddPolicy.Location = New System.Drawing.Point(12, 399)
+        Me.btnAddPolicy.Name = "btnAddPolicy"
+        Me.btnAddPolicy.Size = New System.Drawing.Size(75, 23)
+        Me.btnAddPolicy.TabIndex = 8
+        Me.btnAddPolicy.Text = "Add"
+        Me.btnAddPolicy.UseVisualStyleBackColor = True
         '
-        'lblAdd
+        'DataGridViewPolicies
         '
-        Me.lblAdd.Location = New System.Drawing.Point(12, 399)
-        Me.lblAdd.Name = "lblAdd"
-        Me.lblAdd.Size = New System.Drawing.Size(75, 23)
-        Me.lblAdd.TabIndex = 8
-        Me.lblAdd.Text = "Add"
-        Me.lblAdd.UseVisualStyleBackColor = True
-        '
-        'DataGridView
-        '
-        Me.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView.Location = New System.Drawing.Point(12, 29)
-        Me.DataGridView.Name = "DataGridView"
-        Me.DataGridView.Size = New System.Drawing.Size(776, 336)
-        Me.DataGridView.TabIndex = 7
+        Me.DataGridViewPolicies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewPolicies.Location = New System.Drawing.Point(12, 29)
+        Me.DataGridViewPolicies.Name = "DataGridViewPolicies"
+        Me.DataGridViewPolicies.Size = New System.Drawing.Size(776, 336)
+        Me.DataGridViewPolicies.TabIndex = 7
         '
         'Policies
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.lblDelete)
-        Me.Controls.Add(Me.lblUpdate)
-        Me.Controls.Add(Me.lblAdd)
-        Me.Controls.Add(Me.DataGridView)
+        Me.Controls.Add(Me.btnEditPolicy)
+        Me.Controls.Add(Me.btnAddPolicy)
+        Me.Controls.Add(Me.DataGridViewPolicies)
         Me.Name = "Policies"
         Me.Text = "Policies"
-        CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewPolicies, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents lblDelete As Button
-    Friend WithEvents lblUpdate As Button
-    Friend WithEvents lblAdd As Button
-    Friend WithEvents DataGridView As DataGridView
+    Friend WithEvents btnEditPolicy As Button
+    Friend WithEvents btnAddPolicy As Button
+    Friend WithEvents DataGridViewPolicies As DataGridView
 End Class

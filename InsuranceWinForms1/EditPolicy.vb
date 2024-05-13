@@ -1,7 +1,7 @@
 ﻿Imports Oracle.ManagedDataAccess.Client
 Imports Oracle.ManagedDataAccess.Types
 
-Public Class EditPolicies
+Public Class EditPolicy
 
     Private connString As String = DatabaseSettings.connString
     Private policyId As String
@@ -28,7 +28,30 @@ Public Class EditPolicies
             Dim policyTable As DataTable = FetchPolicyDetails(policyId)
 
             ' Bind the DataTable to DataGridView
-            DataGridView1.DataSource = policyTable
+            ' DataGridView1.DataSource = policyTable
+
+            If policyTable.Rows.Count > 0 Then
+                ' Dim policyId
+                Dim customerId As Integer = Convert.ToInt32(policyTable.Rows(0)("CustomerID"))
+                Dim vehicleId As Integer = Convert.ToInt32(policyTable.Rows(0)("VehicleID"))
+                Dim policyType As String = policyTable.Rows(0)("PolicyType").ToString()
+                Dim startDate As Date = Convert.ToDateTime(policyTable.Rows(0)("StartDate"))
+                Dim endDate As Date = Convert.ToDateTime(policyTable.Rows(0)("EndDate"))
+                Dim premium As Decimal = Convert.ToDecimal(policyTable.Rows(0)("Premium"))
+
+
+                txtCustomerId.Text = customerId.ToString()
+                txtVehicleId.Text = vehicleId.ToString()
+                txtPolicyType.Text = policyType
+                dtStartDate.Value = startDate
+                dtEndDate.Value = endDate
+                txtPremium.Text = premium.ToString()
+
+            Else
+                MessageBox.Show("Vehicle details not found.")
+
+            End If
+
         End If
     End Sub
 
@@ -62,22 +85,14 @@ Public Class EditPolicies
             Dim vehicleId As Integer
             If Integer.TryParse(txtVehicleID.Text, vehicleId) Then
                 Dim policyType As String = txtPolicyType.Text
-                Dim startDate As Date
-                If Date.TryParse(txtStartDate.Text, startDate) Then
-                    Dim endDate As Date
-                    If Date.TryParse(txtEndDate.Text, endDate) Then
-                        Dim premium As Decimal
-                        If Decimal.TryParse(txtPremium.Text, premium) Then
-                            ' Insert the policy into the database
-                            InsertPolicy(customerId, vehicleId, policyType, startDate, endDate, premium)
-                        Else
-                            MessageBox.Show("Invalid premium.")
-                        End If
-                    Else
-                        MessageBox.Show("Invalid end date.")
-                    End If
+                Dim startDate As Date = dtStartDate.Value
+                Dim endDate As Date = dtEndDate.Value
+                Dim premium As Decimal
+                If Decimal.TryParse(txtPremium.Text, premium) Then
+                    ' Insert the policy into the database
+                    InsertPolicy(customerId, vehicleId, policyType, startDate, endDate, premium)
                 Else
-                    MessageBox.Show("Invalid start date.")
+                    MessageBox.Show("Invalid premium.")
                 End If
             Else
                 MessageBox.Show("Invalid vehicle ID.")
@@ -89,28 +104,21 @@ Public Class EditPolicies
 
     Private Sub btnUpdatePolicy_Click(sender As Object, e As EventArgs) Handles btnUpdatePolicy.Click
         Dim policyID As Integer
-        If Integer.TryParse(txtPolicyID.Text, policyID) Then
+        If Integer.TryParse(lblPolicyId.Text, policyID) Then
             Dim customerId As Integer
-            If Integer.TryParse(txtCustomerID.Text, customerId) Then
+            If Integer.TryParse(txtCustomerId.Text, customerId) Then
                 Dim vehicleId As Integer
-                If Integer.TryParse(txtVehicleID.Text, vehicleId) Then
+                If Integer.TryParse(txtVehicleId.Text, vehicleId) Then
                     Dim policyType As String = txtPolicyType.Text
-                    Dim startDate As Date
-                    If Date.TryParse(txtStartDate.Text, startDate) Then
-                        Dim endDate As Date
-                        If Date.TryParse(txtEndDate.Text, endDate) Then
-                            Dim premium As Decimal
-                            If Decimal.TryParse(txtPremium.Text, premium) Then
-                                ' Update the policy in the database
-                                UpdatePolicy(policyID, customerId, vehicleId, policyType, startDate, endDate, premium)
-                            Else
-                                MessageBox.Show("Invalid premium.")
-                            End If
-                        Else
-                            MessageBox.Show("Invalid end date.")
-                        End If
+                    Dim startDate As Date = dtStartDate.Value
+                    Dim endDate As Date = dtEndDate.Value
+                    Dim premium As Decimal
+
+                    If Decimal.TryParse(txtPremium.Text, premium) Then
+                        ' Update the policy in the database
+                        UpdatePolicy(policyID, customerId, vehicleId, policyType, startDate, endDate, premium)
                     Else
-                        MessageBox.Show("Invalid start date.")
+                        MessageBox.Show("Invalid premium.")
                     End If
                 Else
                     MessageBox.Show("Invalid vehicle ID.")
@@ -125,7 +133,7 @@ Public Class EditPolicies
 
     Private Sub btnDeletePolicy_Click(sender As Object, e As EventArgs) Handles btnDeletePolicy.Click
         Dim policyID As Integer
-        If Integer.TryParse(txtPolicyID.Text, policyID) Then
+        If Integer.TryParse(lblPolicyId.Text, policyID) Then
             ' Delete the policy from the database
             DeletePolicy(policyID)
         Else

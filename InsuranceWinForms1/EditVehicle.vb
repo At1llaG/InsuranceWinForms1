@@ -1,7 +1,7 @@
 ﻿Imports Oracle.ManagedDataAccess.Client
 Imports Oracle.ManagedDataAccess.Types
 
-Public Class EditVehicles
+Public Class EditVehicle
 
     Private connString As String = DatabaseSettings.connString
     Private vehicleId As String
@@ -81,7 +81,7 @@ Public Class EditVehicles
 
     Private Sub btnUpdateVehicle_Click(sender As Object, e As EventArgs) Handles btnUpdateVehicle.Click
         Dim vehicleID As Integer
-        If Integer.TryParse(txtVehicleID.Text, vehicleID) Then
+        If Integer.TryParse(lblVehicleId.Text, vehicleID) Then
             Dim customerId As Integer
             If Integer.TryParse(txtCustomerID.Text, customerId) Then
                 Dim make As String = txtMake.Text
@@ -106,7 +106,7 @@ Public Class EditVehicles
 
     Private Sub btnDeleteVehicle_Click(sender As Object, e As EventArgs) Handles btnDeleteVehicle.Click
         Dim vehicleID As Integer
-        If Integer.TryParse(txtVehicleID.Text, vehicleID) Then
+        If Integer.TryParse(lblVehicleId.Text, vehicleID) Then
             ' Delete the vehicle from the database
             DeleteVehicle(vehicleID)
         Else

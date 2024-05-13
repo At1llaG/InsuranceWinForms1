@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class EditVehicles
+Partial Class EditVehicle
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,9 +22,9 @@ Partial Class EditVehicles
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.lblDelete = New System.Windows.Forms.Button()
-        Me.lblUpdate = New System.Windows.Forms.Button()
-        Me.lblAdd = New System.Windows.Forms.Button()
+        Me.btnDeleteVehicle = New System.Windows.Forms.Button()
+        Me.btnUpdateVehicle = New System.Windows.Forms.Button()
+        Me.btnAddVehicle = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtModel = New System.Windows.Forms.TextBox()
         Me.txtMake = New System.Windows.Forms.TextBox()
@@ -46,32 +46,32 @@ Partial Class EditVehicles
         Me.txtRegistrationNumber = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
-        'lblDelete
+        'btnDeleteVehicle
         '
-        Me.lblDelete.Location = New System.Drawing.Point(260, 512)
-        Me.lblDelete.Name = "lblDelete"
-        Me.lblDelete.Size = New System.Drawing.Size(75, 23)
-        Me.lblDelete.TabIndex = 10
-        Me.lblDelete.Text = "Delete"
-        Me.lblDelete.UseVisualStyleBackColor = True
+        Me.btnDeleteVehicle.Location = New System.Drawing.Point(260, 512)
+        Me.btnDeleteVehicle.Name = "btnDeleteVehicle"
+        Me.btnDeleteVehicle.Size = New System.Drawing.Size(75, 23)
+        Me.btnDeleteVehicle.TabIndex = 10
+        Me.btnDeleteVehicle.Text = "Delete"
+        Me.btnDeleteVehicle.UseVisualStyleBackColor = True
         '
-        'lblUpdate
+        'btnUpdateVehicle
         '
-        Me.lblUpdate.Location = New System.Drawing.Point(157, 512)
-        Me.lblUpdate.Name = "lblUpdate"
-        Me.lblUpdate.Size = New System.Drawing.Size(75, 23)
-        Me.lblUpdate.TabIndex = 9
-        Me.lblUpdate.Text = "Update"
-        Me.lblUpdate.UseVisualStyleBackColor = True
+        Me.btnUpdateVehicle.Location = New System.Drawing.Point(157, 512)
+        Me.btnUpdateVehicle.Name = "btnUpdateVehicle"
+        Me.btnUpdateVehicle.Size = New System.Drawing.Size(75, 23)
+        Me.btnUpdateVehicle.TabIndex = 9
+        Me.btnUpdateVehicle.Text = "Update"
+        Me.btnUpdateVehicle.UseVisualStyleBackColor = True
         '
-        'lblAdd
+        'btnAddVehicle
         '
-        Me.lblAdd.Location = New System.Drawing.Point(38, 512)
-        Me.lblAdd.Name = "lblAdd"
-        Me.lblAdd.Size = New System.Drawing.Size(75, 23)
-        Me.lblAdd.TabIndex = 8
-        Me.lblAdd.Text = "Add"
-        Me.lblAdd.UseVisualStyleBackColor = True
+        Me.btnAddVehicle.Location = New System.Drawing.Point(38, 512)
+        Me.btnAddVehicle.Name = "btnAddVehicle"
+        Me.btnAddVehicle.Size = New System.Drawing.Size(75, 23)
+        Me.btnAddVehicle.TabIndex = 8
+        Me.btnAddVehicle.Text = "Add"
+        Me.btnAddVehicle.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -256,9 +256,9 @@ Partial Class EditVehicles
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lblDelete)
-        Me.Controls.Add(Me.lblUpdate)
-        Me.Controls.Add(Me.lblAdd)
+        Me.Controls.Add(Me.btnDeleteVehicle)
+        Me.Controls.Add(Me.btnUpdateVehicle)
+        Me.Controls.Add(Me.btnAddVehicle)
         Me.Name = "EditVehicles"
         Me.Text = "Vehicles"
         Me.ResumeLayout(False)
@@ -266,9 +266,9 @@ Partial Class EditVehicles
 
     End Sub
 
-    Friend WithEvents lblDelete As Button
-    Friend WithEvents lblUpdate As Button
-    Friend WithEvents lblAdd As Button
+    Friend WithEvents btnDeleteVehicle As Button
+    Friend WithEvents btnUpdateVehicle As Button
+    Friend WithEvents btnAddVehicle As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents txtModel As TextBox
     Friend WithEvents txtMake As TextBox

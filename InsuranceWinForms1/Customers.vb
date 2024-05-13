@@ -24,6 +24,11 @@ Public Class Customers
         DataGridViewCustomers.DataSource = dataTable
     End Sub
 
+    Private Sub btnAddCustomer_Click(sender As Object, e As EventArgs) Handles btnAddCustomer.Click
+        EditCustomer.Show()
+
+    End Sub
+
     Private Sub btnEditCustomer_Click(sender As Object, e As EventArgs) Handles btnEditCustomer.Click
         ' Check if a row is selected
         If DataGridViewCustomers.SelectedRows.Count > 0 Then
@@ -37,11 +42,6 @@ Public Class Customers
             MessageBox.Show("Please select a customer to edit.")
         End If
 
-
-    End Sub
-
-    Private Sub btnAddCustomer_Click(sender As Object, e As EventArgs) Handles btnAddCustomer.Click
-        EditCustomer.Show()
 
     End Sub
 

@@ -10,7 +10,7 @@ Public Class Start
     End Sub
 
     Private Sub btnVehicles_Click(sender As Object, e As EventArgs) Handles btnVehicles.Click
-        EditVehicles.Show()
+        EditVehicle.Show()
     End Sub
 
     Private Sub btnDrivers_Click(sender As Object, e As EventArgs) Handles btnDrivers.Click
