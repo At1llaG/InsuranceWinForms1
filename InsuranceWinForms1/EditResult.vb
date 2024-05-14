@@ -54,6 +54,8 @@ Public Class EditResult
         If resultDetailsTable.Rows.Count > 0 Then
             lblResultID.Text = resultDetailsTable.Rows(0)("ResultID").ToString()
             txtReportID.Text = resultDetailsTable.Rows(0)("ReportID").ToString()
+            txtVehicleID1.Text = resultDetailsTable.Rows(0)("VehicleID1").ToString()
+            txtVehicleID2.Text = resultDetailsTable.Rows(0)("VehicleID2").ToString()
             txtLocation.Text = resultDetailsTable.Rows(0)("Location").ToString()
             txtDamageAmount.Text = resultDetailsTable.Rows(0)("DamageAmount").ToString()
             txtPlate1.Text = resultDetailsTable.Rows(0)("Plate1").ToString()
@@ -114,30 +116,47 @@ Public Class EditResult
 
     Private Sub AddCrashResult()
         Dim reportID As Integer
+        Dim vehicleID1 As Integer
+        Dim vehicleID2 As Integer
+        Dim faultRateDriver1 As Decimal
+        Dim faultRateDriver2 As Decimal
         Dim damageAmount As Decimal
         Dim violationCode As String = txtViolationCode.Text
+        Dim violationNotification As String = txtViolationNotification.Text
+
 
         If Integer.TryParse(txtReportID.Text, reportID) AndAlso
+           Integer.TryParse(txtVehicleID1.Text, vehicleID1) AndAlso
+           Integer.TryParse(txtVehicleID2.Text, vehicleID2) AndAlso
+           Decimal.TryParse(numFaultRateDriver1.Value, faultRateDriver1) AndAlso
+           Decimal.TryParse(numFaultRateDriver2.Value, faultRateDriver2) AndAlso
            Decimal.TryParse(txtDamageAmount.Text, damageAmount) Then
 
-            Dim query As String = "INSERT INTO CrashResults (ReportID, DamageAmount, ViolationCode) " &
-                                  "VALUES (:reportID, :damageAmount, :violationCode)"
+            Dim query As String = "INSERT INTO CrashResults (ReportID, VehicleID1, VehicleID2, FaultRateDriver1, FaultRateDriver2, " &
+                "DamageAmount, ViolationCode, ViolationNotification) " &
+                "VALUES (:reportID, :vehicleID1, :vehicleID2, :faultRateDriver1, :faultRateDriver2, :damageAmount, :violationCode, :violationNotification )"
 
-            Try
-                Using conn As New OracleConnection(connString)
-                    Using cmd As New OracleCommand(query, conn)
-                        cmd.Parameters.Add(":reportID", OracleDbType.Int32).Value = reportID
-                        cmd.Parameters.Add(":damageAmount", OracleDbType.Decimal).Value = damageAmount
-                        cmd.Parameters.Add(":violationCode", OracleDbType.Varchar2).Value = violationCode
+            'Try
+            Using conn As New OracleConnection(connString)
+                Using cmd As New OracleCommand(query, conn)
+                    cmd.Parameters.Add(":reportID", OracleDbType.Int32).Value = reportID
+                    cmd.Parameters.Add(":vehicleID1", OracleDbType.Int32).Value = vehicleID1
+                    cmd.Parameters.Add(":vehicleID2", OracleDbType.Int32).Value = vehicleID2
+                    cmd.Parameters.Add(":faultRateDriver1", OracleDbType.Decimal).Value = faultRateDriver1
+                    cmd.Parameters.Add(":faultRateDriver2", OracleDbType.Decimal).Value = faultRateDriver2
+                    cmd.Parameters.Add(":damageAmount", OracleDbType.Decimal).Value = damageAmount
+                    cmd.Parameters.Add(":violationCode", OracleDbType.Varchar2).Value = violationCode
+                    cmd.Parameters.Add(":violationNotification", OracleDbType.Varchar2).Value = violationNotification
+                    'cmd.Parameters.Add(":violationCode", OracleDbType.Varchar2).Value = violationCode
 
-                        conn.Open()
-                        Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-                        MessageBox.Show($"{rowsAffected} row(s) inserted successfully.")
-                    End Using
+                    conn.Open()
+                    Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+                    MessageBox.Show($"{rowsAffected} row(s) inserted successfully.")
                 End Using
-            Catch ex As Exception
-                MessageBox.Show($"Error adding crash result: {ex.Message}")
-            End Try
+            End Using
+            'Catch ex As Exception
+            '    MessageBox.Show($"Error adding crash result: {ex.Message}")
+            'End Try
         Else
             MessageBox.Show("Invalid input data.")
         End If

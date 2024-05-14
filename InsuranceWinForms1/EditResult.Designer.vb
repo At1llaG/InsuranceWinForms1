@@ -51,6 +51,10 @@ Partial Class EditResult
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtPlate2 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtVehicleID1 = New System.Windows.Forms.TextBox()
+        Me.txtVehicleID2 = New System.Windows.Forms.TextBox()
         CType(Me.numFaultRateDriver1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numFaultRateDriver2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -289,11 +293,47 @@ Partial Class EditResult
         Me.Label9.TabIndex = 63
         Me.Label9.Text = "B -"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(467, 384)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(66, 13)
+        Me.Label11.TabIndex = 64
+        Me.Label11.Text = "Vehicle Id 1:"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(463, 409)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(69, 13)
+        Me.Label15.TabIndex = 65
+        Me.Label15.Text = "Vehicle Id 2 :"
+        '
+        'txtVehicleID1
+        '
+        Me.txtVehicleID1.Location = New System.Drawing.Point(529, 380)
+        Me.txtVehicleID1.Name = "txtVehicleID1"
+        Me.txtVehicleID1.Size = New System.Drawing.Size(100, 20)
+        Me.txtVehicleID1.TabIndex = 66
+        '
+        'txtVehicleID2
+        '
+        Me.txtVehicleID2.Location = New System.Drawing.Point(529, 403)
+        Me.txtVehicleID2.Name = "txtVehicleID2"
+        Me.txtVehicleID2.Size = New System.Drawing.Size(100, 20)
+        Me.txtVehicleID2.TabIndex = 67
+        '
         'EditResult
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 732)
+        Me.Controls.Add(Me.txtVehicleID2)
+        Me.Controls.Add(Me.txtVehicleID1)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtPlate2)
         Me.Controls.Add(Me.Label8)
@@ -358,4 +398,8 @@ Partial Class EditResult
     Friend WithEvents Label8 As Label
     Friend WithEvents txtPlate2 As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents txtVehicleID1 As TextBox
+    Friend WithEvents txtVehicleID2 As TextBox
 End Class
