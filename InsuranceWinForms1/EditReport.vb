@@ -39,6 +39,7 @@ Public Class EditReport
         Dim reportDetailsTable As DataTable = FetchCrashReportDetails(reportId)
 
         If reportDetailsTable.Rows.Count > 0 Then
+            lblReportID.Text = reportId
             txtVehicleID1.Text = reportDetailsTable.Rows(0)("VehicleID1").ToString()
             txtVehicleID2.Text = reportDetailsTable.Rows(0)("VehicleID2").ToString()
             txtDriverID1.Text = reportDetailsTable.Rows(0)("DriverID1").ToString()
@@ -137,6 +138,8 @@ Public Class EditReport
             Dim vehicleID2 As Integer
             Dim driverID1 As Integer
             Dim driverID2 As Integer
+            Dim policyID1 As Integer
+            Dim policyID2 As Integer
             Dim reportDate As Date = dtReportDate.Value
             Dim location As String = txtLocation.Text
             ' Dim description As String = txtDescription.Text
@@ -146,35 +149,39 @@ Public Class EditReport
             If Integer.TryParse(txtVehicleID1.Text, vehicleID1) AndAlso
                Integer.TryParse(txtVehicleID2.Text, vehicleID2) AndAlso
                Integer.TryParse(txtDriverID1.Text, driverID1) AndAlso
-               Integer.TryParse(txtDriverID2.Text, driverID2) Then
+               Integer.TryParse(txtDriverID2.Text, driverID2) AndAlso
+               Integer.TryParse(txtPolicyID2.Text, policyID1) AndAlso
+               Integer.TryParse(txtPolicyID2.Text, policyID2) AndAlso
+                Integer.TryParse(lblReportID.Text, reportID) Then
                 ' Date.TryParse(txtReportDate.Text, reportDate) Then
 
                 Dim query As String = "UPDATE CrashReports SET VehicleID1 = :vehicleID1, VehicleID2 = :vehicleID2, DriverID1 = :driverID1, " &
-                                      "DriverID2 = :driverID2, ReportDate = :reportDate, Location = :location, Description = :description, " &
+                                      "DriverID2 = :driverID2, PolicyID1 = :policyID1, PolicyID2 = :policyID2, ReportDate = :reportDate, Location = :location, " &
                                       "Testimonial1 = :testimonial1, Testimonial2 = :testimonial2 WHERE ReportID = :reportID"
 
-                Try
-                    Using conn As New OracleConnection(connString)
-                        Using cmd As New OracleCommand(query, conn)
-                            cmd.Parameters.Add(":vehicleID1", OracleDbType.Int32).Value = vehicleID1
-                            cmd.Parameters.Add(":vehicleID2", OracleDbType.Int32).Value = vehicleID2
-                            cmd.Parameters.Add(":driverID1", OracleDbType.Int32).Value = driverID1
-                            cmd.Parameters.Add(":driverID2", OracleDbType.Int32).Value = driverID2
-                            cmd.Parameters.Add(":reportDate", OracleDbType.Date).Value = reportDate
-                            cmd.Parameters.Add(":location", OracleDbType.Varchar2).Value = location
-                            ' cmd.Parameters.Add(":description", OracleDbType.Varchar2).Value = description
-                            cmd.Parameters.Add(":testimonial1", OracleDbType.Varchar2).Value = testimonial1
-                            cmd.Parameters.Add(":testimonial2", OracleDbType.Varchar2).Value = testimonial2
-                            cmd.Parameters.Add(":reportID", OracleDbType.Int32).Value = reportID
+                ' Try
+                Using conn As New OracleConnection(connString)
+                    Using cmd As New OracleCommand(query, conn)
+                        cmd.Parameters.Add(":vehicleID1", OracleDbType.Int32).Value = vehicleID1
+                        cmd.Parameters.Add(":vehicleID2", OracleDbType.Int32).Value = vehicleID2
+                        cmd.Parameters.Add(":driverID1", OracleDbType.Int32).Value = driverID1
+                        cmd.Parameters.Add(":driverID2", OracleDbType.Int32).Value = driverID2
+                        cmd.Parameters.Add(":policyID1", OracleDbType.Int32).Value = policyID1
+                        cmd.Parameters.Add(":policyID2", OracleDbType.Int32).Value = policyID2
+                        cmd.Parameters.Add(":reportDate", OracleDbType.Date).Value = reportDate
+                        cmd.Parameters.Add(":location", OracleDbType.Varchar2).Value = location
+                        cmd.Parameters.Add(":testimonial1", OracleDbType.Varchar2).Value = testimonial1
+                        cmd.Parameters.Add(":testimonial2", OracleDbType.Varchar2).Value = testimonial2
+                        cmd.Parameters.Add(":reportID", OracleDbType.Int32).Value = reportID
 
-                            conn.Open()
-                            Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-                            MessageBox.Show($"{rowsAffected} row(s) updated successfully.")
-                        End Using
+                        conn.Open()
+                        Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+                        MessageBox.Show($"{rowsAffected} row(s) updated successfully.")
                     End Using
-                Catch ex As Exception
-                    MessageBox.Show($"Error updating crash report: {ex.Message}")
-                End Try
+                End Using
+                ''Catch ex As Exception
+                ''    MessageBox.Show($"Error updating crash report: {ex.Message}")
+                ''End Try
             Else
                 MessageBox.Show("Invalid input data.")
             End If
