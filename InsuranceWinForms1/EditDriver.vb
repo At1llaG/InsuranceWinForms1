@@ -19,6 +19,37 @@ Public Class EditDriver
     Private Sub EditDrivers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not String.IsNullOrEmpty(driverId) Then
             Dim driverTable As DataTable = FetchDriverDetails(driverId)
+
+            If driverTable.Rows.Count > 0 Then
+                Dim firstName As String = driverTable.Rows(0)("FirstName").ToString()
+                Dim lastName As String = driverTable.Rows(0)("LastName").ToString()
+                Dim identityNumber As String = driverTable.Rows(0)("IdentityNumber").ToString()
+                Dim dateOfBirth As Date = driverTable.Rows(0)("DateOfBirth")
+                Dim licenseIssuanceDate As String = driverTable.Rows(0)("LicenseIssuanceDate")
+                Dim licenseValidUntilDate As String = driverTable.Rows(0)("LicenseValidUntilDate")
+                Dim licenseClass As String = driverTable.Rows(0)("LicenseClass").ToString()
+                Dim licenseNumber As String = driverTable.Rows(0)("LicenseNumber").ToString()
+                Dim licenseIssuedBy As String = driverTable.Rows(0)("LicenseIssuedBy").ToString()
+                Dim address As String = driverTable.Rows(0)("Address").ToString()
+                Dim phoneNumber As String = driverTable.Rows(0)("PhoneNumber").ToString()
+
+
+                txtFirstName.Text = firstName
+                txtLastName.Text = lastName
+                txtIdentityNumber.Text = identityNumber
+                dtDateOfBirth.Value = dateOfBirth
+                dtLicenseIssuanceDate.Value = licenseIssuanceDate
+                dtLicenseValidUntilDate.Value = licenseValidUntilDate
+                txtLicenseClass.Text = licenseClass
+                txtLicenseNumber.Text = licenseNumber
+                txtLicenseIssuedBy.Text = licenseIssuedBy
+                txtAddress.Text = address
+                txtPhoneNumber.Text = phoneNumber
+                lblDriverId.Text = driverId
+
+            Else
+                MessageBox.Show("Vehicle details not found.")
+            End If
         End If
     End Sub
 

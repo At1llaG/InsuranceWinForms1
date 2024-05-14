@@ -24,10 +24,10 @@ Public Class Vehicles
 
     Private Sub btnEditVehicle_Click(sender As Object, e As EventArgs) Handles btnEditVehicle.Click
         If DataGridViewVehicles.SelectedRows.Count > 0 Then
-            Dim customerId = DataGridViewVehicles.SelectedRows(0).Cells("CustomerID").Value.ToString()
+            Dim vehicleId = DataGridViewVehicles.SelectedRows(0).Cells("VehicleID").Value.ToString()
 
-            Dim editCustomerForm As New EditCustomer(customerId)
-            editCustomerForm.ShowDialog()
+            Dim editVehicleForm As New EditVehicle(vehicleId)
+            editVehicleForm.ShowDialog()
         Else
             MessageBox.Show("Please select a vehicle to edit.")
         End If

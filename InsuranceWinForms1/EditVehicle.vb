@@ -21,6 +21,28 @@ Public Class EditVehicle
         If Not String.IsNullOrEmpty(vehicleId) Then
             Dim vehicleDetails As DataTable = FetchVehicleDetails(vehicleId)
 
+            If vehicleDetails.Rows.Count > 0 Then
+                Dim customerId As String = vehicleDetails.Rows(0)("CustomerID").ToString()
+                Dim plate As String = vehicleDetails.Rows(0)("Plate").ToString()
+                Dim make As String = vehicleDetails.Rows(0)("Make").ToString()
+                Dim model As String = vehicleDetails.Rows(0)("Model").ToString()
+                Dim year As String = vehicleDetails.Rows(0)("Year").ToString()
+                Dim color As String = vehicleDetails.Rows(0)("Color").ToString()
+                Dim registrationNumber As String = vehicleDetails.Rows(0)("RegistrationNumber").ToString()
+
+
+                lblVehicleId.Text = vehicleId
+                txtCustomerID.Text = customerId
+                txtPlate.Text = plate
+                txtMake.Text = make
+                txtModel.Text = model
+                txtYear.Text = year
+                txtColor.Text = color
+                txtRegistrationNumber.Text = registrationNumber
+            Else
+                MessageBox.Show("Vehicle details not found.")
+            End If
+
         End If
     End Sub
 

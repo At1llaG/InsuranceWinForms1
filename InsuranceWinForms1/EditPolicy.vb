@@ -39,7 +39,7 @@ Public Class EditPolicy
                 dtStartDate.Value = startDate
                 dtEndDate.Value = endDate
                 txtPremium.Text = premium.ToString()
-
+                lblPolicyId.Text = policyId
             Else
                 MessageBox.Show("Vehicle details not found.")
 

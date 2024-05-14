@@ -27,8 +27,8 @@ Public Class Policies
         If DataGridViewPolicies.SelectedRows.Count > 0 Then
             Dim policyId = DataGridViewPolicies.SelectedRows(0).Cells("PolicyID").Value.ToString()
 
-            Dim editCustomerForm As New EditCustomer(policyId)
-            editCustomerForm.Show()
+            Dim editPolicyForm As New EditPolicy(policyId)
+            editPolicyForm.Show()
         Else
             MessageBox.Show("Please select a customer to edit.")
         End If
