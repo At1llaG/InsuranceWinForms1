@@ -8,26 +8,12 @@ Public Class DatabaseAddTestData
         Try
             Using conn As New OracleConnection(connString)
                 conn.Open()
-
-                ' Populate example data for Customers
                 PopulateCustomers(conn)
-
-                ' Populate example data for Vehicles
                 PopulateVehicles(conn)
-
-                ' Populate example data for Policies
                 PopulatePolicies(conn)
-
-                ' Populate example data for Drivers
                 PopulateDrivers(conn)
-
-                ' Populate example data for CrashReports
                 PopulateCrashReports(conn)
-
-                ' Populate example data for CrashResults
                 PopulateCrashResults(conn)
-
-                ' Populate example data for Claims
                 PopulateClaims(conn)
             End Using
         Catch ex As Exception

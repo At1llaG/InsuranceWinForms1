@@ -7,28 +7,18 @@ Public Class EditDriver
     Private driverId As String
 
     Public Sub New()
-        ' Initialize the component
         InitializeComponent()
-
-        ' Set the driver ID to an empty string or any default value as needed
         Me.driverId = String.Empty
     End Sub
 
-    ' Constructor that accepts the driver ID
     Public Sub New(driverId As String)
-        ' Initialize the component
         InitializeComponent()
-
-        ' Store the driver ID
         Me.driverId = driverId
     End Sub
 
     Private Sub EditDrivers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not String.IsNullOrEmpty(driverId) Then
             Dim driverTable As DataTable = FetchDriverDetails(driverId)
-
-            ' Bind the DataTable to DataGridView
-            ' DataGridView1.DataSource = driverTable
         End If
     End Sub
 
@@ -92,7 +82,6 @@ Public Class EditDriver
             Dim phoneNumber As String = txtPhoneNumber.Text
 
 
-            ' Update the driver in the database
             UpdateDriver(driverID, firstName, lastName, identityNumber, dateOfBirth, licenseIssuanceDate, licenseValidUntilDate, licenseClass, licenseNumber, licenseIssuedBy, address, phoneNumber)
 
         Else
@@ -103,7 +92,6 @@ Public Class EditDriver
     Private Sub btnDeleteDriver_Click(sender As Object, e As EventArgs) Handles btnDeleteDriver.Click
         Dim driverID As Integer
         If Integer.TryParse(lblDriverId.Text, driverID) Then
-            ' Delete the driver from the database
             DeleteDriver(driverID)
         Else
             MessageBox.Show("Invalid driver ID.")

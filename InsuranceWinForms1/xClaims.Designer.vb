@@ -64,7 +64,7 @@ Partial Class xClaims
         Me.lblAdd.Text = "Add"
         Me.lblAdd.UseVisualStyleBackColor = True
         '
-        'Claims
+        'xClaims
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -73,7 +73,7 @@ Partial Class xClaims
         Me.Controls.Add(Me.lblUpdate)
         Me.Controls.Add(Me.lblAdd)
         Me.Controls.Add(Me.DataGridView)
-        Me.Name = "Claims"
+        Me.Name = "xClaims"
         Me.Text = "Claims"
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

@@ -7,19 +7,13 @@ Public Class EditCustomer
     Private customerId As String
 
     Public Sub New()
-        ' Initialize the component
         InitializeComponent()
-
-        ' Set the customer ID to an empty string or any default value as needed
         Me.customerId = String.Empty
     End Sub
 
     ' Constructor that accepts the customer ID
     Public Sub New(customerId As String)
-        ' Initialize the component
         InitializeComponent()
-
-        ' Store the customer ID
         Me.customerId = customerId
     End Sub
 
@@ -28,14 +22,12 @@ Public Class EditCustomer
             Dim customerDetails As DataTable = FetchCustomerDetails(customerId)
 
             If customerDetails.Rows.Count > 0 Then
-                ' Retrieve customer details from the DataTable
                 Dim firstName As String = customerDetails.Rows(0)("FirstName").ToString()
                 Dim lastName As String = customerDetails.Rows(0)("LastName").ToString()
                 Dim email As String = customerDetails.Rows(0)("Email").ToString()
                 Dim phone As String = customerDetails.Rows(0)("Phone").ToString()
                 Dim address As String = customerDetails.Rows(0)("Address").ToString()
 
-                ' Populate the text boxes with the retrieved values
                 txtFirstName.Text = firstName
                 txtLastName.Text = lastName
                 txtEmail.Text = email
@@ -78,7 +70,6 @@ Public Class EditCustomer
                     ' Retrieve the returned value as OracleDecimal
                     Dim returnedValue As OracleDecimal = DirectCast(cmd.Parameters(":newCustomerId").Value, OracleDecimal)
 
-                    ' Check if the returned value is not null
                     If Not returnedValue.IsNull Then
                         ' Convert the OracleDecimal to integer
                         Dim newCustomerId As Integer = returnedValue.ToInt32()
@@ -104,7 +95,6 @@ Public Class EditCustomer
             Dim phone As String = txtPhone.Text
             Dim address As String = txtAddress.Text
 
-            ' Update the customer in the database
             UpdateCustomer(customerID, firstName, lastName, email, phone, address)
         Else
             MessageBox.Show("Invalid customer ID.")
@@ -114,7 +104,6 @@ Public Class EditCustomer
     Private Sub btnDeleteCustomer_Click(sender As Object, e As EventArgs) Handles btnDeleteCustomer.Click
         Dim customerID As Integer
         If Integer.TryParse(lblCustomerId.Text, customerID) Then
-            ' Delete the customer from the database
             DeleteCustomer(customerID)
         Else
             MessageBox.Show("Invalid customer ID.")

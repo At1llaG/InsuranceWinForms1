@@ -7,19 +7,13 @@ Public Class EditResult
     Private resultId As String
 
     Public Sub New()
-        ' Initialize the component
         InitializeComponent()
-
-        ' Set the result ID to an empty string or any default value as needed
         Me.resultId = String.Empty
     End Sub
 
     ' Constructor that accepts the result ID
     Public Sub New(resultId As String)
-        ' Initialize the component
         InitializeComponent()
-
-        ' Store the result ID
         Me.resultId = resultId
     End Sub
 
@@ -50,7 +44,6 @@ Public Class EditResult
         Next
         Console.WriteLine()
 
-        ' Print rows
         For Each row As DataRow In resultDetailsTable.Rows
             For Each item As Object In row.ItemArray
                 Console.Write($"{item}" & vbTab)

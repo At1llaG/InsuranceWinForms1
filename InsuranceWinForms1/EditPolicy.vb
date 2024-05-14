@@ -7,19 +7,13 @@ Public Class EditPolicy
     Private policyId As String
 
     Public Sub New()
-        ' Initialize the component
         InitializeComponent()
-
-        ' Set the policy ID to an empty string or any default value as needed
         Me.policyId = String.Empty
     End Sub
 
     ' Constructor that accepts the policy ID
     Public Sub New(policyId As String)
-        ' Initialize the component
         InitializeComponent()
-
-        ' Store the policy ID
         Me.policyId = policyId
     End Sub
 
@@ -27,7 +21,6 @@ Public Class EditPolicy
         If Not String.IsNullOrEmpty(policyId) Then
             Dim policyTable As DataTable = FetchPolicyDetails(policyId)
 
-            ' Bind the DataTable to DataGridView
             ' DataGridView1.DataSource = policyTable
 
             If policyTable.Rows.Count > 0 Then
@@ -89,7 +82,6 @@ Public Class EditPolicy
                 Dim endDate As Date = dtEndDate.Value
                 Dim premium As Decimal
                 If Decimal.TryParse(txtPremium.Text, premium) Then
-                    ' Insert the policy into the database
                     InsertPolicy(customerId, vehicleId, policyType, startDate, endDate, premium)
                 Else
                     MessageBox.Show("Invalid premium.")
@@ -115,7 +107,6 @@ Public Class EditPolicy
                     Dim premium As Decimal
 
                     If Decimal.TryParse(txtPremium.Text, premium) Then
-                        ' Update the policy in the database
                         UpdatePolicy(policyID, customerId, vehicleId, policyType, startDate, endDate, premium)
                     Else
                         MessageBox.Show("Invalid premium.")
@@ -134,7 +125,6 @@ Public Class EditPolicy
     Private Sub btnDeletePolicy_Click(sender As Object, e As EventArgs) Handles btnDeletePolicy.Click
         Dim policyID As Integer
         If Integer.TryParse(lblPolicyId.Text, policyID) Then
-            ' Delete the policy from the database
             DeletePolicy(policyID)
         Else
             MessageBox.Show("Invalid policy ID.")
@@ -159,12 +149,9 @@ Public Class EditPolicy
                     conn.Open()
                     Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
 
-                    ' Retrieve the returned value as OracleDecimal
                     Dim returnedValue As OracleDecimal = DirectCast(cmd.Parameters(":newPolicyId").Value, OracleDecimal)
 
-                    ' Check if the returned value is not null
                     If Not returnedValue.IsNull Then
-                        ' Convert the OracleDecimal to integer
                         Dim newCustomerId As Integer = returnedValue.ToInt32()
                         lblPolicyId.Text = newCustomerId.ToString()
                     Else

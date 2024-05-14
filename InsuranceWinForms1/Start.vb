@@ -46,44 +46,32 @@ Public Class Start
     End Sub
 
     Private Sub btnInitializeCreate_Click(sender As Object, e As EventArgs) Handles btnInitializeCreate.Click
-        ' Create an instance of the DatabaseInitialize class
         Dim dbInitializer As New DatabaseInitialize()
 
-        ' Call the InitializeCreate method
         Dim success As Boolean = dbInitializer.InitializeCreate()
 
-        ' Check the success status
         If success Then
-            ' Initialization succeeded
             MessageBox.Show("Database initialization successful.")
         Else
-            ' Initialization failed
             MessageBox.Show("Database initialization failed.")
         End If
     End Sub
 
     Private Sub btnInitializeDrop_Click(sender As Object, e As EventArgs) Handles btnInitializeDrop.Click
-        ' Create an instance of the DatabaseInitialize class
         Dim dbInitializer As New DatabaseInitialize()
 
-        ' Call the InitializeCreate method
         Dim success As Boolean = dbInitializer.InitializeDrop()
 
-        ' Check the success status
         If success Then
-            ' Initialization succeeded
             MessageBox.Show("Database DROP initialization successful.")
         Else
-            ' Initialization failed
             MessageBox.Show("Database DROP initialization failed.")
         End If
     End Sub
 
     Private Sub btnAddTestData_Click(sender As Object, e As EventArgs) Handles btnAddTestData.Click
-        ' Create an instance of the DatabaseInitialize class
         Dim dbTestDataPopulator As New DatabaseAddTestData()
 
-        ' Call the InitializeCreate method
         dbTestDataPopulator.PopulateTestData()
 
     End Sub
@@ -108,7 +96,6 @@ Public Class Start
                 End Using
             End Using
         Catch ex As Exception
-            ' Handle any exceptions
             Console.WriteLine("Error: " & ex.Message)
         End Try
 

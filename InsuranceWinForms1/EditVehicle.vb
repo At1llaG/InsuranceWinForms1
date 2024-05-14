@@ -7,30 +7,19 @@ Public Class EditVehicle
     Private vehicleId As String
 
     Public Sub New()
-        ' Initialize the component
         InitializeComponent()
-
-        ' Set the vehicle ID to an empty string or any default value as needed
         Me.vehicleId = String.Empty
     End Sub
 
     ' Constructor that accepts the vehicle ID
     Public Sub New(vehicleId As String)
-        ' Initialize the component
         InitializeComponent()
-
-        ' Store the vehicle ID
         Me.vehicleId = vehicleId
     End Sub
 
     Private Sub EditVehicles_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not String.IsNullOrEmpty(vehicleId) Then
             Dim vehicleDetails As DataTable = FetchVehicleDetails(vehicleId)
-
-            ' Bind the DataTable to DataGridView
-            ' DataGridView1.DataSource = vehicleTable
-
-
 
         End If
     End Sub
@@ -70,7 +59,6 @@ Public Class EditVehicle
                 Dim color As String = txtColor.Text
                 Dim regNumber As String = txtRegistrationNumber.Text
 
-                ' Insert the vehicle into the database
                 InsertVehicle(customerId, plate, make, model, year, color, regNumber)
             Else
                 MessageBox.Show("Invalid year.")
@@ -93,7 +81,6 @@ Public Class EditVehicle
                     Dim color As String = txtColor.Text
                     Dim regNumber As String = txtRegistrationNumber.Text
 
-                    ' Update the vehicle in the database
                     UpdateVehicle(vehicleID, customerId, plate, make, model, year, color, regNumber)
                 Else
                     MessageBox.Show("Invalid year.")
@@ -109,7 +96,6 @@ Public Class EditVehicle
     Private Sub btnDeleteVehicle_Click(sender As Object, e As EventArgs) Handles btnDeleteVehicle.Click
         Dim vehicleID As Integer
         If Integer.TryParse(lblVehicleId.Text, vehicleID) Then
-            ' Delete the vehicle from the database
             DeleteVehicle(vehicleID)
         Else
             MessageBox.Show("Invalid vehicle ID.")

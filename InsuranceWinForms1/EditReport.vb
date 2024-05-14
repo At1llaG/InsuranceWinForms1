@@ -7,19 +7,13 @@ Public Class EditReport
     Private reportId As String
 
     Public Sub New()
-        ' Initialize the component
         InitializeComponent()
-
-        ' Set the report ID to an empty string or any default value as needed
         Me.reportId = String.Empty
     End Sub
 
     ' Constructor that accepts the report ID
     Public Sub New(reportId As String)
-        ' Initialize the component
         InitializeComponent()
-
-        ' Store the report ID
         Me.reportId = reportId
     End Sub
 
